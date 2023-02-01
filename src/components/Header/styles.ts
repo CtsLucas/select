@@ -23,7 +23,6 @@ export const IconAvatar = styled.div`
   justify-content: center;
 
   & > span {
-    color: ${({ theme }) => theme.colors.zinc[100]};
     font-size: 0.75rem;
     font-weight: 500;
     line-height: 1rem;

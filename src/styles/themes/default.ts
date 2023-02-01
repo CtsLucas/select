@@ -24,5 +24,10 @@ export const defaultTheme = {
       800: '#3730a3',
       900: '#312e81',
     },
+    background: {
+      opacity: {
+        50: 'rgba(0, 0, 0, 0.5)',
+      },
+    },
   },
 } as const;
