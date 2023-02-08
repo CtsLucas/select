@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const JourneyContainer = styled.div`
   background: ${({ theme }) => theme.colors.indigo[900]};
-  min-width: 21.25rem;
-  height: 21.25rem;
+  width: 100%;
+  height: 20.25rem;
   border-radius: 8px;
   padding: 1.5rem;
 
@@ -11,6 +11,10 @@ export const JourneyContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+
+  .swiper-slide {
+    width: 70%;
+  }
 
   .header {
     display: flex;

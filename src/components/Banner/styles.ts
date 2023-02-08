@@ -4,8 +4,10 @@ export const BannerContainer = styled.div`
   position: relative;
 
   & > img {
+    display: block;
     width: 100%;
-    max-height: 14rem;
+    max-height: 45rem;
+    object-fit: cover;
   }
 `;
 

@@ -1,25 +1,41 @@
 import { Plus } from 'phosphor-react';
+
 import { BannerContainer, MaskBanner } from './styles';
 
-export function Banner() {
+export interface BannerType {
+  instructor: string;
+  id: string;
+  thumb: string;
+  title: string;
+}
+
+export interface BannerProps {
+  data: BannerType;
+  onLoading: () => void;
+}
+
+export function Banner({ data, onLoading }: BannerProps) {
+  const { thumb, instructor, title } = data;
+
+  function handleLoading() {
+    onLoading();
+  }
+
   return (
     <BannerContainer>
-      <img
-        src="https://assets.staart.com/app/_c/afc1ef67-d0fa-4f96-824d-3dd90eab1c12/thumb/Web_Card_1_1440x720.png"
-        alt=""
-      />
+      <img src={thumb} alt="" onLoad={handleLoading} />
 
       <MaskBanner>
         <div className="author">
-          <span>Mateus Silva</span>
+          <span>{instructor}</span>
         </div>
 
         <div className="title">
-          <h1>Fundamentos do React</h1>
+          <h1>{title}</h1>
         </div>
 
         <div className="details">
-          <Plus size={16}/>
+          <Plus size={16} />
           <span>Mais Detalhes</span>
         </div>
       </MaskBanner>

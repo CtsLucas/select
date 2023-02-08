@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CoursesContainer = styled.div`
   background: ${({ theme }) => theme.colors.indigo[900]};
-  min-width: 15.5rem;
+  width: 100%;
   height: 18.125rem;
   border-radius: 8px;
 
@@ -11,7 +11,7 @@ export const CoursesContainer = styled.div`
 
   & > img {
     width: 100%;
-    max-height: 9.25rem;
+    min-height: 8rem;
   }
 
   .info {
