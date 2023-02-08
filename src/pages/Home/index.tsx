@@ -68,22 +68,14 @@ export function Home() {
   }, [contents]);
 
   return (
-    <>
-      <Header />
-      <HomeContainer>
-        <Carousell slides={banners} variant="banner" />
-        <Carousell
-          slides={journeys}
-          variant="journey"
-          title="Jornadas a serem trilhadas"
-        />
-        <Carousell
-          slides={courses}
-          variant="course"
-          title="Cursos disponíveis"
-        />
-      </HomeContainer>
-      <Footer />
-    </>
+    <HomeContainer>
+      <Carousell slides={banners} variant="banner" />
+      <Carousell
+        slides={journeys}
+        variant="journey"
+        title="Jornadas a serem trilhadas"
+      />
+      <Carousell slides={courses} variant="course" title="Cursos disponíveis" />
+    </HomeContainer>
   );
 }
