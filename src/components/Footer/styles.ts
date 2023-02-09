@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-  background: ${({ theme }) => theme.colors.indigo[900]};
+  background: ${({ theme }) => theme.colors.background.indigo[20]};
   padding: 1rem 1.25rem;
 
   & > div {

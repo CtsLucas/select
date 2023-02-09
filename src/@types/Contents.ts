@@ -6,6 +6,8 @@ export interface Journey {
   pathID: string;
   slug: string;
   title: string;
+  duration?: number;
+  countCourses?: number;
 }
 
 export interface Course {

@@ -1,5 +1,7 @@
 import { ClockAfternoon } from 'phosphor-react';
 
+import { formatDuration } from '../../utils/formatters';
+
 import { SlideJourneyContainer } from './styles';
 
 export interface SlideJourneyType {
@@ -7,6 +9,8 @@ export interface SlideJourneyType {
   thumb: string;
   title: string;
   description: string;
+  countCourses?: number;
+  duration?: number;
 }
 
 export interface SlideJourneyProps {
@@ -15,7 +19,7 @@ export interface SlideJourneyProps {
 }
 
 export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
-  const { thumb, title, description } = data;
+  const { thumb, title, description, countCourses = 0, duration = 0 } = data;
 
   function handleLoading() {
     onLoading();
@@ -30,12 +34,15 @@ export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
       <div className="content">
         <p>{description}</p>
       </div>
-      {/* TO-DO: Create structure to carry out the request to /journeys/{id}/courses  */}
       <div className="footer">
-        <span>6 Cursos</span>
+        <span>
+          {countCourses === 1
+            ? `${countCourses} Curso`
+            : `${countCourses} Cursos`}
+        </span>
         <span>
           <ClockAfternoon />
-          15h 51min
+          {formatDuration(duration)}
         </span>
       </div>
     </SlideJourneyContainer>

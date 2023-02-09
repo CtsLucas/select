@@ -25,6 +25,9 @@ export const defaultTheme = {
       900: '#312e81',
     },
     background: {
+      indigo: {
+        20: 'rgba(49, 46, 129, 0.2)',
+      },
       opacity: {
         50: 'rgba(0, 0, 0, 0.5)',
       },

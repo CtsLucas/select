@@ -41,6 +41,8 @@ export function Home() {
           title: journey.title,
           thumb: journey.medias.thumb,
           description: journey.description,
+          countCourses: journey.countCourses,
+          duration: journey.duration,
         };
       }) || [];
 
