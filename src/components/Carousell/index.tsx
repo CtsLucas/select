@@ -3,14 +3,14 @@ import { useKeenSlider } from 'keen-slider/react';
 import { KeenSliderHooks, KeenSliderInstance } from 'keen-slider';
 
 import { Banner, BannerType } from '../Banner';
-import { Journey, JourneyType } from '../Journey';
-import { Course, CourseType } from '../Course';
+import { SlideJourney, SlideJourneyType } from '../SlideJourney';
+import { SlideCourse, SlideCourseType } from '../SlideCourse';
 
 import { CarousellContainer, SlidesContainer, Title } from './styles';
 import 'keen-slider/keen-slider.min.css';
 
 interface CarousellProps {
-  slides?: BannerType[] | JourneyType[] | CourseType[];
+  slides?: BannerType[] | SlideJourneyType[] | SlideCourseType[];
   variant: 'banner' | 'journey' | 'course';
   title?: string;
 }
@@ -125,8 +125,8 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
                 case 'journey':
                   return (
                     <div key={item.id} className="keen-slider__slide">
-                      <Journey
-                        data={item as JourneyType}
+                      <SlideJourney
+                        data={item as SlideJourneyType}
                         onLoading={handleLoading}
                       />
                     </div>
@@ -134,8 +134,8 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
                 case 'course':
                   return (
                     <div key={item.id} className="keen-slider__slide">
-                      <Course
-                        data={item as CourseType}
+                      <SlideCourse
+                        data={item as SlideCourseType}
                         onLoading={handleLoading}
                       />
                     </div>

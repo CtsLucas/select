@@ -1,21 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { Header } from '../../components/Header';
 import { Carousell } from '../../components/Carousell';
-import { Footer } from '../../components/Footer';
 import { BannerType } from '../../components/Banner';
-import { JourneyType } from '../../components/Journey';
-import { CourseType } from '../../components/Course';
+import { SlideJourneyType } from '../../components/SlideJourney';
+import { SlideCourseType } from '../../components/SlideCourse';
 
 import { ContentsContext } from '../../contexts/ContentsContext';
-import { HomeContainer } from './styles';
 import { getRandomItens } from '../../utils/getRandomItens';
+import { HomeContainer } from './styles';
 
 export function Home() {
   const { contents } = useContext(ContentsContext);
   const [banners, setBanners] = useState<BannerType[]>([]);
-  const [journeys, setJourneys] = useState<JourneyType[]>([]);
-  const [courses, setCourses] = useState<CourseType[]>([]);
+  const [journeys, setJourneys] = useState<SlideJourneyType[]>([]);
+  const [courses, setCourses] = useState<SlideCourseType[]>([]);
 
   useEffect(() => {
     const coursesIdSelected = [

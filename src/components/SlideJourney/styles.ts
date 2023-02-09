@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const JourneyContainer = styled.div`
+export const SlideJourneyContainer = styled.div`
   background: ${({ theme }) => theme.colors.indigo[900]};
   width: 100%;
   height: 20.25rem;

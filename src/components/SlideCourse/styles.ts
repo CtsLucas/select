@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CoursesContainer = styled.div`
+export const SlideCourseContainer = styled.div`
   background: ${({ theme }) => theme.colors.indigo[900]};
   width: 100%;
   height: 18.125rem;

@@ -1,20 +1,20 @@
 import { ClockAfternoon } from 'phosphor-react';
 
-import { JourneyContainer } from './styles';
+import { SlideJourneyContainer } from './styles';
 
-export interface JourneyType {
+export interface SlideJourneyType {
   id: string;
   thumb: string;
   title: string;
   description: string;
 }
 
-export interface JourneyProps {
-  data: JourneyType;
+export interface SlideJourneyProps {
+  data: SlideJourneyType;
   onLoading: () => void;
 }
 
-export function Journey({ data, onLoading }: JourneyProps) {
+export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
   const { thumb, title, description } = data;
 
   function handleLoading() {
@@ -22,7 +22,7 @@ export function Journey({ data, onLoading }: JourneyProps) {
   }
 
   return (
-    <JourneyContainer>
+    <SlideJourneyContainer>
       <div className="header">
         <img src={thumb} alt="" onLoad={handleLoading} />
         <strong>{title}</strong>
@@ -38,6 +38,6 @@ export function Journey({ data, onLoading }: JourneyProps) {
           15h 51min
         </span>
       </div>
-    </JourneyContainer>
+    </SlideJourneyContainer>
   );
 }

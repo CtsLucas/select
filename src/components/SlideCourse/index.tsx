@@ -1,7 +1,7 @@
 import { ChartBar, Clock } from 'phosphor-react';
-import { CoursesContainer } from './styles';
+import { SlideCourseContainer } from './styles';
 
-export interface CourseType {
+export interface SlideCourseType {
   id: string;
   thumb: string;
   title: string;
@@ -10,13 +10,12 @@ export interface CourseType {
   duration: number;
 }
 
-export interface CourseProps {
-  data: CourseType;
+export interface SlideCourseProps {
+  data: SlideCourseType;
   onLoading: () => void;
 }
 
-export function Course({ data, onLoading }: CourseProps) {
-  console.log('🚀 ~ file: index.tsx:19 ~ Course ~ data', data);
+export function SlideCourse({ data, onLoading }: SlideCourseProps) {
   const { thumb, title, instructor, level, duration } = data;
 
   function handleLoading() {
@@ -49,7 +48,7 @@ export function Course({ data, onLoading }: CourseProps) {
   }
 
   return (
-    <CoursesContainer>
+    <SlideCourseContainer>
       <img src={thumb} alt="" onLoad={handleLoading} />
       <div className="info">
         <strong>{title}</strong>
@@ -65,6 +64,6 @@ export function Course({ data, onLoading }: CourseProps) {
           </span>
         </div>
       </div>
-    </CoursesContainer>
+    </SlideCourseContainer>
   );
 }
