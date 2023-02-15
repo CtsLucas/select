@@ -7,7 +7,7 @@ import {
 } from 'react';
 import axios from 'axios';
 
-import { Course, Journey } from '../@types/Contents';
+import { CourseType, Journey } from '../@types/Contents';
 
 import { api } from '../lib/axios';
 
@@ -22,14 +22,14 @@ interface ContentsProviderProps {
 }
 
 interface Contents {
-  courses?: Course[];
+  courses?: CourseType[];
   journeys?: Journey[];
 }
 
 export function ContentsProvider({ children }: ContentsProviderProps) {
   const [contents, setContents] = useState<Contents>({});
 
-  function getDetailsFromCourses(journey: Course[]) {
+  function getDetailsFromCourses(journey: CourseType[]) {
     const countCourses = journey.length;
 
     const duration = journey.reduce((acc, course) => {
@@ -48,7 +48,7 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
 
       const journeysId = journeysData.map((jorney: Journey) => jorney.pathID);
 
-      const coursesData = await axios.all<Array<Course>>(
+      const coursesData = await axios.all<Array<CourseType>>(
         journeysId.map((id: string) =>
           api.get(`/journeys/${id}/courses`).then((res) => res.data)
         )

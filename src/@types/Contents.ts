@@ -10,7 +10,7 @@ export interface Journey {
   countCourses?: number;
 }
 
-export interface Course {
+export interface CourseType {
   courseCategory: string;
   courseCreatedAt: Date;
   courseGroup: string;
@@ -29,7 +29,7 @@ export interface Course {
   title: string;
 }
 
-export interface Lesson {
+export interface LessonType {
   description: string;
   duration: number;
   extras?: object;

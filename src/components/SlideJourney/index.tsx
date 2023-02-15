@@ -19,14 +19,21 @@ export interface SlideJourneyProps {
 }
 
 export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
-  const { thumb, title, description, countCourses = 0, duration = 0 } = data;
+  const {
+    id,
+    thumb,
+    title,
+    description,
+    countCourses = 0,
+    duration = 0,
+  } = data;
 
   function handleLoading() {
     onLoading();
   }
 
   return (
-    <SlideJourneyContainer>
+    <SlideJourneyContainer to={`journeys/${id}`}>
       <div className="header">
         <img src={thumb} alt="" onLoad={handleLoading} />
         <strong>{title}</strong>
