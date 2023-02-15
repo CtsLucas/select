@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const SlideCourseContainer = styled.div`
+export const SlideCourseContainer = styled(Link)`
   background: ${({ theme }) => theme.colors.indigo[900]};
   width: 100%;
   height: 18.125rem;
@@ -24,6 +25,7 @@ export const SlideCourseContainer = styled.div`
     justify-content: space-between;
 
     & > strong {
+      color: ${({ theme }) => theme.colors.zinc[100]};
       font-size: 1rem;
       font-weight: 700;
       line-height: 1.25rem;
@@ -41,6 +43,7 @@ export const SlideCourseContainer = styled.div`
       justify-content: space-between;
 
       & > span {
+        color: ${({ theme }) => theme.colors.zinc[100]};
         display: flex;
         justify-content: center;
         align-items: center;

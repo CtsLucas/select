@@ -52,10 +52,12 @@ export const MaskBanner = styled.div`
       color: ${({ theme }) => theme.colors.zinc[100]};
     }
 
-    & > span {
+    & > a {
+      color: ${({ theme }) => theme.colors.zinc[100]};
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.25rem;
+      text-decoration: none;
     }
   }
 `;

@@ -8,6 +8,12 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & > a {
+    &:focus {
+      box-shadow: none;
+    }
+  }
 `;
 
 export const IconAvatar = styled.div`

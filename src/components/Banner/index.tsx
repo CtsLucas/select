@@ -1,4 +1,5 @@
 import { Plus } from 'phosphor-react';
+import { Link } from 'react-router-dom';
 
 import { BannerContainer, MaskBanner } from './styles';
 
@@ -15,7 +16,7 @@ export interface BannerProps {
 }
 
 export function Banner({ data, onLoading }: BannerProps) {
-  const { thumb, instructor, title } = data;
+  const { id, thumb, instructor, title } = data;
 
   function handleLoading() {
     onLoading();
@@ -36,7 +37,7 @@ export function Banner({ data, onLoading }: BannerProps) {
 
         <div className="details">
           <Plus size={16} />
-          <span>Mais Detalhes</span>
+          <Link to={`/courses/${id}`}>Mais Detalhes</Link>
         </div>
       </MaskBanner>
     </BannerContainer>

@@ -110,38 +110,37 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
       <SlidesContainer>
         <div className="navigation-wrapper">
           <div ref={sliderRef} className="keen-slider">
-            {instanceRef.current &&
-              slides?.map((item) => {
-                switch (variant) {
-                case 'banner':
-                  return (
-                    <div key={item.id} className="keen-slider__slide">
-                      <Banner
-                        data={item as BannerType}
-                        onLoading={handleLoading}
-                      />
-                    </div>
-                  );
-                case 'journey':
-                  return (
-                    <div key={item.id} className="keen-slider__slide">
-                      <SlideJourney
-                        data={item as SlideJourneyType}
-                        onLoading={handleLoading}
-                      />
-                    </div>
-                  );
-                case 'course':
-                  return (
-                    <div key={item.id} className="keen-slider__slide">
-                      <SlideCourse
-                        data={item as SlideCourseType}
-                        onLoading={handleLoading}
-                      />
-                    </div>
-                  );
-                }
-              })}
+            {slides?.map((item) => {
+              switch (variant) {
+              case 'banner':
+                return (
+                  <div key={item.id} className="keen-slider__slide">
+                    <Banner
+                      data={item as BannerType}
+                      onLoading={handleLoading}
+                    />
+                  </div>
+                );
+              case 'journey':
+                return (
+                  <div key={item.id} className="keen-slider__slide">
+                    <SlideJourney
+                      data={item as SlideJourneyType}
+                      onLoading={handleLoading}
+                    />
+                  </div>
+                );
+              case 'course':
+                return (
+                  <div key={item.id} className="keen-slider__slide">
+                    <SlideCourse
+                      data={item as SlideCourseType}
+                      onLoading={handleLoading}
+                    />
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
         {variant === 'banner' &&

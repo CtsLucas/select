@@ -19,14 +19,14 @@ export interface SlideCourseProps {
 }
 
 export function SlideCourse({ data, onLoading }: SlideCourseProps) {
-  const { thumb, title, instructor, level, duration } = data;
+  const { id, thumb, title, instructor, level, duration } = data;
 
   function handleLoading() {
     onLoading();
   }
 
   return (
-    <SlideCourseContainer>
+    <SlideCourseContainer to={`/courses/${id}`}>
       <img src={thumb} alt="" onLoad={handleLoading} />
       <div className="info">
         <strong>{title}</strong>
