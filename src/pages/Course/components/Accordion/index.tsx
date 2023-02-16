@@ -13,11 +13,10 @@ import {
 } from './styles';
 
 interface AccordionProps {
-  data: Module[];
+  data: ModuleType[];
 }
 
-interface Module {
-  id: string;
+export interface ModuleType {
   title: string;
   duration: number;
   lessons: LessonType[];
@@ -25,17 +24,18 @@ interface Module {
 
 export function Accordion({ data }: AccordionProps) {
   /* TO-DO: reassess component name */
+
+  if (!data) return null;
+
   return (
     <AccordionRoot type="single" collapsible>
       {data.map((module) => (
-        <AccordionItem value={module.id} key={module.id}>
+        <AccordionItem value={module.title} key={module.title}>
           <AccordionHeader>
             <AccordionTrigger>
               <CaretDown size={16} />
-              <div className="informations">
-                <strong>{module.title}</strong>
-                <span>{formatDuration(module.duration)}</span>
-              </div>
+              <strong>{module.title}</strong>
+              <span>{formatDuration(module.duration)}</span>
             </AccordionTrigger>
           </AccordionHeader>
           <AccordionContent>

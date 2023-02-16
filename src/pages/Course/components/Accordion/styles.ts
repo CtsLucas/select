@@ -20,6 +20,7 @@ export const AccordionTrigger = styled(Accordion.Trigger)`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
 
   & > svg {
@@ -27,25 +28,21 @@ export const AccordionTrigger = styled(Accordion.Trigger)`
     transition: transform 300ms;
   }
 
-  & > .informations {
+  & > strong {
+    display: block;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: start;
+  }
 
-    & > strong {
-      color: ${({ theme }) => theme.colors.zinc[100]};
-      font-weight: 700;
-      font-size: 1rem;
-      line-height: 1.25rem;
-    }
-
-    & > span {
-      color: ${({ theme }) => theme.colors.zinc[100]};
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 1rem;
-    }
+  & > span {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1rem;
   }
 
   &:focus {
@@ -66,12 +63,34 @@ export const AccordionContent = styled(Accordion.Content)`
 `;
 
 export const Lesson = styled.div`
-  padding-top: 10px;
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 
   &:not(:last-child) {
     margin-bottom: 0.5rem;
+  }
+
+  & > svg {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+  }
+
+  & > strong {
+    display: block;
+    width: 100%;
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: start;
+  }
+
+  & > span {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1rem;
   }
 `;

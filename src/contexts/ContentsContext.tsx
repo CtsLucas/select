@@ -44,7 +44,7 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
 
   const fetchContents = useCallback(async () => {
     try {
-      const { data: journeysData } = await api.get('journeys');
+      const { data: journeysData } = await api.get('/journeys');
 
       const journeysId = journeysData.map((jorney: Journey) => jorney.pathID);
 

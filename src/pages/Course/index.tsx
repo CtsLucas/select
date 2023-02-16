@@ -1,12 +1,13 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ChartBar, FileArrowDown, Medal, MonitorPlay } from 'phosphor-react';
 
 import { api } from '../../lib/axios';
-import { CourseType } from '../../@types/Contents';
+import { LessonType } from '../../@types/Contents';
 import { formatLevel } from '../../utils/formatters';
+import { ContentsContext } from '../../contexts/ContentsContext';
 
-import { Accordion } from './components/Accordion';
+import { Accordion, ModuleType } from './components/Accordion';
 
 import {
   BannerWrapper,
@@ -16,100 +17,65 @@ import {
   Modules,
 } from './styles';
 
+interface ResponseProps {
+  modules: ModuleProps[];
+}
+
+interface ModuleProps {
+  duration: number;
+  lessons: LessonType[];
+  title: string;
+}
+
 export function Course() {
+  const [modules, setModules] = useState<ModuleType[]>([]);
+
   const { id } = useParams();
 
-  const [courses, setCourses] = useState<CourseType>();
+  const { contents } = useContext(ContentsContext);
+
+  const course = contents.courses?.find((product) => {
+    return product.id === id;
+  });
 
   const fetchCourses = useCallback(async () => {
-    const { data } = await api.get(`/courses/${id}`);
+    try {
+      const {
+        data: { modules },
+      } = await api.get<ResponseProps>(`/lessons/${id}`);
 
-    setCourses(data || []);
+      const modulesWithLessons = modules.map((module) => {
+        const duration = module.lessons.reduce(
+          (acc: number, lesson: LessonType) => {
+            return acc + lesson.duration;
+          },
+          0
+        );
+
+        return {
+          ...module,
+          duration,
+        };
+      });
+
+      setModules(modulesWithLessons);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   useEffect(() => {
     fetchCourses();
   }, []);
 
-  const modulesMock = [
-    {
-      id: '1',
-      title: 'Introdução',
-      duration: 2880795,
-      lessons: [
-        {
-          id: '1',
-          title: 'Iniciando a aplicação',
-          duration: 2880795,
-          description: '',
-          status: '',
-        },
-        {
-          id: '2',
-          title: 'Implementando o formulário',
-          duration: 2880795,
-          description: '',
-          status: '',
-        },
-        {
-          id: '3',
-          title: 'Implementando o feed',
-          duration: 2880795,
-          description: '',
-          status: '',
-        },
-        {
-          id: '4',
-          title: 'Feed sem itens',
-          duration: 2880795,
-          description: '',
-          status: '',
-        },
-      ],
-    },
-    {
-      id: '2',
-      title: 'Construção da Interface',
-      duration: 2880795,
-      lessons: [
-        {
-          id: '1',
-          title: 'Iniciando a aplicação',
-          duration: 2880795,
-          description: '',
-          status: '',
-        },
-        {
-          id: '2',
-          title: 'Implementando o formulário',
-          duration: 2880795,
-          description: '',
-          status: '',
-        },
-        {
-          id: '3',
-          title: 'Implementando o feed',
-          duration: 2880795,
-          description: '',
-          status: '',
-        },
-        {
-          id: '4',
-          title: 'Feed sem itens',
-          duration: 2880795,
-          description: '',
-          status: '',
-        },
-      ],
-    },
-  ];
+  console.log(modules);
 
   return (
     <CourseContainer>
       <BannerWrapper>
-        <strong>{courses?.title}</strong>
+        <strong>{course?.title}</strong>
 
-        <p>{courses?.description}</p>
+        <p>{course?.description}</p>
       </BannerWrapper>
 
       <CourseContent>
@@ -118,7 +84,7 @@ export function Course() {
           <div className="details-wrapper">
             <div className="details-item">
               <MonitorPlay size={24} />
-              <span>{courses?.modules.length} Capítulos</span>
+              <span>{course?.modules.length} Capítulos</span>
             </div>
             <div className="details-item">
               <FileArrowDown size={24} />
@@ -126,7 +92,7 @@ export function Course() {
             </div>
             <div className="details-item">
               <ChartBar size={24} />
-              <span>{formatLevel(courses?.level || '')}</span>
+              <span>{formatLevel(course?.level || '')}</span>
             </div>
             <div className="details-item">
               <Medal size={24} />
@@ -139,7 +105,7 @@ export function Course() {
           <strong>Capítulos do curso</strong>
 
           <div className="modules-wrapper ">
-            <Accordion data={modulesMock} />
+            <Accordion data={modules} />
           </div>
         </Modules>
       </CourseContent>
