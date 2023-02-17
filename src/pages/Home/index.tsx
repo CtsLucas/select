@@ -33,6 +33,9 @@ export function Home() {
             thumb: courses.medias.thumb,
             title: courses.title,
             id: courses.id,
+            duration: courses.duration,
+            coursesCount: courses.modules.length,
+            level: courses.level,
           };
         }) || [];
 

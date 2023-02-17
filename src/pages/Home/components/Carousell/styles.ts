@@ -34,10 +34,10 @@ export const CarousellContent = styled.div`
 
   .dot {
     border: 1px solid transparent;
-    width: 0.75rem;
-    height: 0.75rem;
+    width: 1.25rem;
+    height: 1rem;
     background: ${({ theme }) => theme.colors.zinc[500]};
-    border-radius: 50%;
+    border-radius: 12px;
     margin: 0 0.25rem;
     padding: 0.25rem;
     cursor: pointer;
@@ -48,7 +48,12 @@ export const CarousellContent = styled.div`
   }
 
   .dot.active {
+    background: ${({ theme }) => theme.colors.indigo[500]};
+    border: 2px solid ${({ theme }) => theme.colors.zinc[100]};
+  }
+
+  .dot:hover {
     background: ${({ theme }) => theme.colors.zinc[100]};
-    border: 1px solid ${({ theme }) => theme.colors.indigo[500]};
+    border: 2px solid ${({ theme }) => theme.colors.indigo[500]};
   }
 `;

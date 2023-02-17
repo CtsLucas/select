@@ -14,6 +14,11 @@ export const BannerWrapper = styled.div<BannerProps>`
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const BannerOverlay = styled.div`
@@ -23,7 +28,7 @@ export const BannerOverlay = styled.div`
   height: 100%;
   width: 100%;
   background-image: linear-gradient(0deg, var(--tw-gradient-stops));
-  --tw-gradient-from: #040220;
+  --tw-gradient-from: ${({ theme }) => theme.colors.zinc[900]};
   --tw-gradient-stops: var(--tw-gradient-from),
     var(--tw-gradient-to, rgba(4, 2, 32, 0));
   --tw-gradient-to: transparent;

@@ -1,20 +1,26 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus } from 'phosphor-react';
+import { ChartBar, ClockAfternoon, MonitorPlay, Plus } from 'phosphor-react';
+
+import { Banner } from '../../../../components/Banner';
 
 import {
   SlideBannerContainer,
-  SlideBanerMask,
   SlideBannerHeader,
   SlideBannerContent,
   SlideBannerFooter,
+  LinkButton,
 } from './styles';
+import { formatDuration, formatLevel } from '../../../../utils/formatters';
 
 export interface SlideBannerType {
   instructor: string;
   id: string;
   thumb: string;
   title: string;
+  duration: number;
+  coursesCount: number;
+  level: string;
 }
 
 export interface SlideBannerProps {
@@ -23,7 +29,7 @@ export interface SlideBannerProps {
 }
 
 export function SlideBanner({ data, onLoading }: SlideBannerProps) {
-  const { id, thumb, instructor, title } = data;
+  const { id, thumb, instructor, title, duration, coursesCount, level } = data;
 
   function handleLoading() {
     onLoading();
@@ -36,21 +42,38 @@ export function SlideBanner({ data, onLoading }: SlideBannerProps) {
   }, [thumb]);
 
   return (
-    <SlideBannerContainer imageURL={thumb}>
-      <SlideBanerMask>
+    <Banner backgroundImage={thumb}>
+      <SlideBannerContainer>
         <SlideBannerHeader>
           <span>{instructor}</span>
         </SlideBannerHeader>
 
         <SlideBannerContent>
           <h1>{title}</h1>
+
+          <div className="details">
+            <span>
+              <ClockAfternoon size={20} /> {formatDuration(duration)}
+            </span>
+            <span>
+              <MonitorPlay size={20} />{' '}
+              {coursesCount === 1
+                ? `${coursesCount} Capítulo`
+                : `${coursesCount} Capítulos`}
+            </span>
+            <span>
+              <ChartBar size={20} /> {formatLevel(level)}
+            </span>
+          </div>
         </SlideBannerContent>
 
         <SlideBannerFooter>
-          <Plus size={16} />
-          <Link to={`/courses/${id}`}>Mais Detalhes</Link>
+          <LinkButton to={`/courses/${id}`}>
+            <Plus size={16} weight="bold" />
+            <span>Mais Detalhes</span>
+          </LinkButton>
         </SlideBannerFooter>
-      </SlideBanerMask>
-    </SlideBannerContainer>
+      </SlideBannerContainer>
+    </Banner>
   );
 }

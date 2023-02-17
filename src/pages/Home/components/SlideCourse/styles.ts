@@ -8,6 +8,7 @@ export const SlideCourseContainer = styled(Link)`
 
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 `;
 
 interface SlideIconProps {
