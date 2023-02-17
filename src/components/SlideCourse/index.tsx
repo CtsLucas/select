@@ -1,8 +1,15 @@
+import { useEffect } from 'react';
 import { ChartBar, Clock } from 'phosphor-react';
 
 import { formatDuration, formatLevel } from '../../utils/formatters';
 
-import { SlideCourseContainer } from './styles';
+import {
+  SlideCourseContainer,
+  SlideCourseWrapper,
+  SlideCourseHeader,
+  SlideCourseFooter,
+  SlideIcon,
+} from './styles';
 
 export interface SlideCourseType {
   id: string;
@@ -25,13 +32,22 @@ export function SlideCourse({ data, onLoading }: SlideCourseProps) {
     onLoading();
   }
 
+  useEffect(() => {
+    const image = new Image();
+    image.src = thumb;
+    image.onload = handleLoading;
+  }, [thumb]);
+
   return (
     <SlideCourseContainer to={`/courses/${id}`}>
-      <img src={thumb} alt="" onLoad={handleLoading} />
-      <div className="info">
-        <strong>{title}</strong>
-        <span>{instructor}</span>
-        <div className="details">
+      <SlideIcon imageURL={thumb} />
+      <SlideCourseWrapper>
+        <SlideCourseHeader>
+          <strong>{title}</strong>
+          <span>{instructor}</span>
+        </SlideCourseHeader>
+
+        <SlideCourseFooter>
           <span>
             <ChartBar />
             {formatLevel(level)}
@@ -40,8 +56,8 @@ export function SlideCourse({ data, onLoading }: SlideCourseProps) {
             <Clock />
             {formatDuration(duration)}
           </span>
-        </div>
-      </div>
+        </SlideCourseFooter>
+      </SlideCourseWrapper>
     </SlideCourseContainer>
   );
 }

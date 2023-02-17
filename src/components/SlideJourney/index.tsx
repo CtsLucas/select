@@ -2,7 +2,12 @@ import { ClockAfternoon } from 'phosphor-react';
 
 import { formatDuration } from '../../utils/formatters';
 
-import { SlideJourneyContainer } from './styles';
+import {
+  SlideJourneyContainer,
+  SlideJourneyHeader,
+  SlideJourneyContent,
+  SlideJourneyFooter,
+} from './styles';
 
 export interface SlideJourneyType {
   id: string;
@@ -34,14 +39,14 @@ export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
 
   return (
     <SlideJourneyContainer to={`journeys/${id}`}>
-      <div className="header">
+      <SlideJourneyHeader>
         <img src={thumb} alt="" onLoad={handleLoading} />
         <strong>{title}</strong>
-      </div>
-      <div className="content">
+      </SlideJourneyHeader>
+      <SlideJourneyContent>
         <p>{description}</p>
-      </div>
-      <div className="footer">
+      </SlideJourneyContent>
+      <SlideJourneyFooter>
         <span>
           {countCourses === 1
             ? `${countCourses} Curso`
@@ -51,7 +56,7 @@ export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
           <ClockAfternoon />
           {formatDuration(duration)}
         </span>
-      </div>
+      </SlideJourneyFooter>
     </SlideJourneyContainer>
   );
 }

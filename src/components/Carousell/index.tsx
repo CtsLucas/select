@@ -36,7 +36,7 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
         if (mouseOver) return;
         timeout = setTimeout(() => {
           slider.next();
-        }, 3000);
+        }, 5000);
       }
       slider.on('created', () => {
         slider.container.addEventListener('mouseover', () => {
@@ -143,14 +143,12 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
             })}
           </div>
         </div>
-        {variant === 'banner' &&
-          loaded &&
-          instanceRef.current?.track?.details?.slides?.length && (
-          <div className="dots">
-            {[
-              ...Array(
-                instanceRef.current.track.details.slides.length
-              ).keys(),
+        <div className="dots">
+          {variant === 'banner' &&
+            loaded &&
+            instanceRef.current?.track?.details?.slides?.length &&
+            [
+              ...Array(instanceRef.current.track.details.slides.length).keys(),
             ].map((idx) => {
               return (
                 <button
@@ -162,8 +160,7 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
                 ></button>
               );
             })}
-          </div>
-        )}
+        </div>
       </SlidesContainer>
     </CarousellContainer>
   );

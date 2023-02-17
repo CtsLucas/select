@@ -32,16 +32,17 @@ export const SlidesContainer = styled.div`
     display: flex;
     padding: 0.5rem 0;
     justify-content: center;
+    height: 1.75rem;
   }
 
   .dot {
     border: 1px solid transparent;
-    width: 10px;
-    height: 10px;
+    width: 0.75rem;
+    height: 0.75rem;
     background: ${({ theme }) => theme.colors.zinc[500]};
     border-radius: 50%;
-    margin: 0 5px;
-    padding: 5px;
+    margin: 0 0.25rem;
+    padding: 0.25rem;
     cursor: pointer;
   }
 

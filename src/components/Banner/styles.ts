@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
-export const BannerContainer = styled.div`
-  position: relative;
+interface BannerProps {
+  imageURL: string;
+}
 
-  & > img {
-    display: block;
-    width: 100%;
-    max-height: 45rem;
-    object-fit: cover;
-  }
+export const BannerContainer = styled.div<BannerProps>`
+  background-image: url(${({ imageURL }) => imageURL});
+
+  display: block;
+  width: 100%;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  height: 15rem;
+
+  position: relative;
 `;
 
 export const MaskBanner = styled.div`
@@ -25,39 +31,41 @@ export const MaskBanner = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+`;
 
-  .author {
-    & > span {
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.25rem;
-    }
+export const BannerHeader = styled.header`
+  & > span {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+`;
+
+export const BannerContent = styled.div`
+  & > h1 {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.75rem;
+  }
+`;
+
+export const BannerFooter = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+
+  & > svg {
+    color: ${({ theme }) => theme.colors.zinc[100]};
   }
 
-  .title {
-    & > h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      line-height: 1.75rem;
-    }
-  }
-
-  .details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.25rem;
-
-    & > svg {
-      color: ${({ theme }) => theme.colors.zinc[100]};
-    }
-
-    & > a {
-      color: ${({ theme }) => theme.colors.zinc[100]};
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.25rem;
-      text-decoration: none;
-    }
+  & > a {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    text-decoration: none;
   }
 `;
