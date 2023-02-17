@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-interface BannerProps {
+interface SlideBannerProps {
   imageURL: string;
 }
 
-export const BannerContainer = styled.div<BannerProps>`
+export const SlideBannerContainer = styled.div<SlideBannerProps>`
   background-image: url(${({ imageURL }) => imageURL});
 
   display: block;
@@ -17,7 +17,7 @@ export const BannerContainer = styled.div<BannerProps>`
   position: relative;
 `;
 
-export const MaskBanner = styled.div`
+export const SlideBanerMask = styled.div`
   background: ${({ theme }) => theme.colors.background.opacity[50]};
   max-width: 50%;
   height: 100%;
@@ -33,7 +33,7 @@ export const MaskBanner = styled.div`
   align-items: center;
 `;
 
-export const BannerHeader = styled.header`
+export const SlideBannerHeader = styled.header`
   & > span {
     color: ${({ theme }) => theme.colors.zinc[100]};
     font-size: 1rem;
@@ -42,7 +42,7 @@ export const BannerHeader = styled.header`
   }
 `;
 
-export const BannerContent = styled.div`
+export const SlideBannerContent = styled.div`
   & > h1 {
     color: ${({ theme }) => theme.colors.zinc[100]};
     font-size: 1.5rem;
@@ -51,7 +51,7 @@ export const BannerContent = styled.div`
   }
 `;
 
-export const BannerFooter = styled.footer`
+export const SlideBannerFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;

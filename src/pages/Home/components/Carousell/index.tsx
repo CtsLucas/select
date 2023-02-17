@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useKeenSlider } from 'keen-slider/react';
 import { KeenSliderHooks, KeenSliderInstance } from 'keen-slider';
-
-import { Banner, BannerType } from '../Banner';
-import { SlideJourney, SlideJourneyType } from '../SlideJourney';
-import { SlideCourse, SlideCourseType } from '../SlideCourse';
-
-import { CarousellContainer, SlidesContainer, Title } from './styles';
 import 'keen-slider/keen-slider.min.css';
 
+import { SlideBanner, SlideBannerType } from '../SlideBanner';
+import { SlideCourse, SlideCourseType } from '../SlideCourse';
+import { SlideJourney, SlideJourneyType } from '../SlideJourney';
+
+import { CarousellContainer, CarousellContent } from './styles';
+
 interface CarousellProps {
-  slides?: BannerType[] | SlideJourneyType[] | SlideCourseType[];
+  slides: SlideBannerType[] | SlideJourneyType[] | SlideCourseType[];
   variant: 'banner' | 'journey' | 'course';
   title?: string;
 }
@@ -101,13 +101,9 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
 
   return (
     <CarousellContainer variant={variant}>
-      {title && (
-        <Title>
-          <strong>{title}</strong>
-        </Title>
-      )}
+      {title && <strong>{title}</strong>}
 
-      <SlidesContainer>
+      <CarousellContent>
         <div className="navigation-wrapper">
           <div ref={sliderRef} className="keen-slider">
             {slides?.map((item) => {
@@ -115,8 +111,8 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
               case 'banner':
                 return (
                   <div key={item.id} className="keen-slider__slide">
-                    <Banner
-                      data={item as BannerType}
+                    <SlideBanner
+                      data={item as SlideBannerType}
                       onLoading={handleLoading}
                     />
                   </div>
@@ -143,7 +139,7 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
             })}
           </div>
         </div>
-        <div className="dots">
+        <div className={variant === 'banner' ? 'dots' : ''}>
           {variant === 'banner' &&
             loaded &&
             instanceRef.current?.track?.details?.slides?.length &&
@@ -161,7 +157,7 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
               );
             })}
         </div>
-      </SlidesContainer>
+      </CarousellContent>
     </CarousellContainer>
   );
 }

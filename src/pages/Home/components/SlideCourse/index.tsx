@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { ChartBar, Clock } from 'phosphor-react';
 
-import { formatDuration, formatLevel } from '../../utils/formatters';
+import { formatDuration, formatLevel } from '../../../../utils/formatters';
 
 import {
   SlideCourseContainer,

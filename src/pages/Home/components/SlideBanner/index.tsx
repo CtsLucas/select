@@ -3,26 +3,26 @@ import { Link } from 'react-router-dom';
 import { Plus } from 'phosphor-react';
 
 import {
-  BannerContainer,
-  MaskBanner,
-  BannerHeader,
-  BannerContent,
-  BannerFooter,
+  SlideBannerContainer,
+  SlideBanerMask,
+  SlideBannerHeader,
+  SlideBannerContent,
+  SlideBannerFooter,
 } from './styles';
 
-export interface BannerType {
+export interface SlideBannerType {
   instructor: string;
   id: string;
   thumb: string;
   title: string;
 }
 
-export interface BannerProps {
-  data: BannerType;
+export interface SlideBannerProps {
+  data: SlideBannerType;
   onLoading: () => void;
 }
 
-export function Banner({ data, onLoading }: BannerProps) {
+export function SlideBanner({ data, onLoading }: SlideBannerProps) {
   const { id, thumb, instructor, title } = data;
 
   function handleLoading() {
@@ -36,21 +36,21 @@ export function Banner({ data, onLoading }: BannerProps) {
   }, [thumb]);
 
   return (
-    <BannerContainer imageURL={thumb}>
-      <MaskBanner>
-        <BannerHeader>
+    <SlideBannerContainer imageURL={thumb}>
+      <SlideBanerMask>
+        <SlideBannerHeader>
           <span>{instructor}</span>
-        </BannerHeader>
+        </SlideBannerHeader>
 
-        <BannerContent>
+        <SlideBannerContent>
           <h1>{title}</h1>
-        </BannerContent>
+        </SlideBannerContent>
 
-        <BannerFooter>
+        <SlideBannerFooter>
           <Plus size={16} />
           <Link to={`/courses/${id}`}>Mais Detalhes</Link>
-        </BannerFooter>
-      </MaskBanner>
-    </BannerContainer>
+        </SlideBannerFooter>
+      </SlideBanerMask>
+    </SlideBannerContainer>
   );
 }

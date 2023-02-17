@@ -11,19 +11,16 @@ export const CarousellContainer = styled.div<CarousellContainerProps>`
   flex-direction: column;
   gap: 0.875rem;
   overflow: hidden;
-`;
-
-export const Title = styled.div`
-  width: 100%;
 
   & > strong {
+    color: ${({ theme }) => theme.colors.zinc[100]};
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.75rem;
   }
 `;
 
-export const SlidesContainer = styled.div`
+export const CarousellContent = styled.div`
   .navigation-wrapper {
     position: relative;
   }

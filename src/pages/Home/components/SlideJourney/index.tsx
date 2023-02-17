@@ -1,6 +1,6 @@
 import { ClockAfternoon } from 'phosphor-react';
 
-import { formatDuration } from '../../utils/formatters';
+import { formatDuration } from '../../../../utils/formatters';
 
 import {
   SlideJourneyContainer,
