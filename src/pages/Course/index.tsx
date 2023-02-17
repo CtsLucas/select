@@ -7,11 +7,12 @@ import { LessonType } from '../../@types/Contents';
 import { formatLevel } from '../../utils/formatters';
 import { ContentsContext } from '../../contexts/ContentsContext';
 
+import { Banner } from '../../components/Banner';
 import { Accordion, ModuleType } from './components/Accordion';
 
 import {
-  BannerWrapper,
   CourseContainer,
+  BannerContent,
   CourseContent,
   Details,
   Modules,
@@ -68,15 +69,17 @@ export function Course() {
     fetchCourses();
   }, []);
 
-  console.log(modules);
-
   return (
     <CourseContainer>
-      <BannerWrapper>
-        <strong>{course?.title}</strong>
+      <Banner
+        backgroundImage={course?.medias.thumb ? course?.medias.thumb : ''}
+      >
+        <BannerContent>
+          <strong>{course?.title}</strong>
 
-        <p>{course?.description}</p>
-      </BannerWrapper>
+          <p>{course?.description}</p>
+        </BannerContent>
+      </Banner>
 
       <CourseContent>
         <Details>

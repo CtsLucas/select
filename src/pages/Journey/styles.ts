@@ -4,23 +4,21 @@ export const JourneyContainer = styled.div`
   padding-bottom: 1rem;
 `;
 
-export const BannerWrapper = styled.div`
-  background: ${({ theme }) => theme.colors.indigo[400]};
-  padding: 1.5rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: end;
-  gap: 1rem;
-
+export const BannerContent = styled.div`
+  position: relative;
+  z-index: 10;
+  margin: 0 auto;
+  padding: 6rem 0 3rem;
   & > strong {
-    font-size: 1.25rem;
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5rem;
   }
 
   & > p {
+    margin-top: 1.25rem;
+    color: ${({ theme }) => theme.colors.zinc[100]};
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.25rem;

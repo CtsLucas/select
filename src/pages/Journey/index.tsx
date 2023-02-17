@@ -2,21 +2,22 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import { ClockAfternoon, MonitorPlay } from 'phosphor-react';
 import { useParams } from 'react-router-dom';
 
-import { formatDuration } from '../../utils/formatters';
-
 import { api } from '../../lib/axios';
-import { ContentsContext } from '../../contexts/ContentsContext';
 import { CourseType } from '../../@types/Contents';
+import { formatDuration } from '../../utils/formatters';
+import { ContentsContext } from '../../contexts/ContentsContext';
+
+import { CardCourse } from './components/CardCourse';
+import { Banner } from '../../components/Banner';
 
 import {
-  BannerWrapper,
+  BannerContent,
   Detail,
   DetailsContainer,
   JourneyContainer,
   JourneyContent,
   Separator,
 } from './styles';
-import { CardCourse } from './components/CardCourse';
 
 export function Journey() {
   const {
@@ -41,11 +42,15 @@ export function Journey() {
 
   return (
     <JourneyContainer>
-      <BannerWrapper>
-        <strong>{journey?.title}</strong>
+      <Banner
+        backgroundImage={journey?.medias.banner ? journey?.medias.banner : ''}
+      >
+        <BannerContent>
+          <strong>{journey?.title}</strong>
 
-        <p>{journey?.description}</p>
-      </BannerWrapper>
+          <p>{journey?.description}</p>
+        </BannerContent>
+      </Banner>
 
       <DetailsContainer>
         <Detail>
