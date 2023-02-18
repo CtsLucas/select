@@ -8,7 +8,7 @@ import { SlideBannerType } from './components/SlideBanner';
 import { SlideCourseType } from './components/SlideCourse';
 import { SlideJourneyType } from './components/SlideJourney';
 
-import { HomeContainer } from './styles';
+import { HomeContainer, HomeContent } from './styles';
 
 export function Home() {
   const [banners, setBanners] = useState<SlideBannerType[]>([]);
@@ -75,12 +75,19 @@ export function Home() {
   return (
     <HomeContainer>
       <Carousell slides={banners} variant="banner" />
-      <Carousell
-        slides={journeys}
-        variant="journey"
-        title="Jornadas a serem trilhadas"
-      />
-      <Carousell slides={courses} variant="course" title="Cursos disponíveis" />
+
+      <HomeContent>
+        <Carousell
+          slides={journeys}
+          variant="journey"
+          title="Jornadas a serem trilhadas"
+        />
+        <Carousell
+          slides={courses}
+          variant="course"
+          title="Cursos disponíveis"
+        />
+      </HomeContent>
     </HomeContainer>
   );
 }

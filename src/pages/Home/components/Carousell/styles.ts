@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-interface CarousellContainerProps {
-  variant?: 'banner' | 'journey' | 'course';
+interface CarousellProps {
+  variant: 'banner' | 'journey' | 'course';
 }
 
-export const CarousellContainer = styled.div<CarousellContainerProps>`
+export const CarousellContainer = styled.div<CarousellProps>`
   padding-left: ${({ variant }) => (variant !== 'banner' ? '1.5rem' : '0')};
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -20,9 +21,28 @@ export const CarousellContainer = styled.div<CarousellContainerProps>`
   }
 `;
 
-export const CarousellContent = styled.div`
+const slideVariant = {
+  banner: css`
+    max-width: initial;
+    min-width: initial;
+  `,
+  journey: css`
+    max-width: 340px;
+    min-width: 340px;
+  `,
+  course: css`
+    max-width: 248px;
+    min-width: 248px;
+  `,
+};
+
+export const CarousellContent = styled.div<CarousellProps>`
   .navigation-wrapper {
     position: relative;
+  }
+
+  .keen-slider__slide {
+    ${({ variant }) => slideVariant[variant] || slideVariant.banner}
   }
 
   .dots {
@@ -55,5 +75,43 @@ export const CarousellContent = styled.div`
   .dot:hover {
     background: ${({ theme }) => theme.colors.zinc[100]};
     border: 2px solid ${({ theme }) => theme.colors.indigo[500]};
+  }
+
+  .arrow {
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    cursor: pointer;
+
+    color: ${({ theme }) => theme.colors.zinc[100]};
+  }
+
+  .arrow:focus {
+    box-shadow: none;
+  }
+
+  .arrow--left {
+    background: linear-gradient(90deg, #18181b 0%, rgba(24, 24, 27, 0) 100%);
+    left: -5px;
+  }
+
+  .arrow--right {
+    background: linear-gradient(90deg, rgba(24, 24, 27, 0) 0%, #18181b 100%);
+
+    left: auto;
+    right: 0px;
+  }
+
+  .arrow--disabled {
+    fill: rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    .arrow {
+      display: none;
+    }
   }
 `;

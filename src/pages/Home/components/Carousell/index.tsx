@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { CaretLeft, CaretRight } from 'phosphor-react';
 import { useKeenSlider } from 'keen-slider/react';
 import { KeenSliderHooks, KeenSliderInstance } from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
@@ -56,7 +57,7 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
   ]);
 
   function handleLoading() {
-    instanceRef.current?.update();
+    instanceRef.current?.update(instanceRef.current.options);
     setLoaded(true);
   }
 
@@ -77,20 +78,30 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
     case 'journey':
       setOptions({
         loop: true,
+        mode: 'snap',
         slides: {
-          perView: 1.25,
+          perView: 'auto',
           spacing: 15,
+        },
+        created() {
+          handleLoading();
         },
       });
       break;
     case 'course':
       setOptions({
         loop: true,
+        mode: 'snap',
+        renderMode: 'performance',
         slides: {
-          perView: 1.5,
+          perView: 'auto',
           spacing: 15,
         },
+        created() {
+          handleLoading();
+        },
       });
+
       break;
     }
   }, [loaded]);
@@ -103,7 +114,7 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
     <CarousellContainer variant={variant}>
       {title && <strong>{title}</strong>}
 
-      <CarousellContent>
+      <CarousellContent variant={variant}>
         <div className="navigation-wrapper">
           <div ref={sliderRef} className="keen-slider">
             {slides?.map((item) => {
@@ -138,6 +149,23 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
               }
             })}
           </div>
+          {variant !== 'banner' && loaded && instanceRef.current && (
+            <>
+              {/* TO-DO: Create button component */}
+              <button
+                className="arrow arrow--left"
+                onClick={() => instanceRef.current?.prev()}
+              >
+                <CaretLeft size={32} weight="bold" />
+              </button>
+              <button
+                className="arrow arrow--right"
+                onClick={() => instanceRef.current?.next()}
+              >
+                <CaretRight size={32} weight="bold" />
+              </button>
+            </>
+          )}
         </div>
         <div className={variant === 'banner' ? 'dots' : ''}>
           {variant === 'banner' &&
