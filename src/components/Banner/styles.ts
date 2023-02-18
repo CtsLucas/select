@@ -19,6 +19,8 @@ export const BannerWrapper = styled.div<BannerProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  width: 100%;
 `;
 
 export const BannerOverlay = styled.div`

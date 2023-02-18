@@ -4,7 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { CourseType } from '../../../../@types/Contents';
 import { formatDuration, formatLevel } from '../../../../utils/formatters';
 
-import { CardCourseContainer } from './styles';
+import {
+  CardCourseContainer,
+  CardCourseImage,
+  CardCourseContent,
+  CardCourseFooter,
+  CardButton,
+} from './styles';
 
 interface CardCourseProps {
   data: CourseType;
@@ -24,13 +30,13 @@ export function CardCourse({ data }: CardCourseProps) {
 
   return (
     <CardCourseContainer>
-      <img src={thumb} alt="" />
+      <CardCourseImage imageURL={thumb} />
 
-      <div className="content">
-        <strong>{title}</strong>
+      <CardCourseContent>
+        <h2>{title}</h2>
         <span>{instructor}</span>
         <p>{description}</p>
-        <div className="details">
+        <CardCourseFooter>
           <span>
             <ChartBar />
             {formatLevel(level)}
@@ -39,11 +45,11 @@ export function CardCourse({ data }: CardCourseProps) {
             <Clock />
             {formatDuration(duration)}
           </span>
-        </div>
-        <button onClick={() => navigate(`/courses/${id}`)}>
+        </CardCourseFooter>
+        <CardButton onClick={() => navigate(`/courses/${id}`)}>
           Começar curso
-        </button>
-      </div>
+        </CardButton>
+      </CardCourseContent>
     </CardCourseContainer>
   );
 }

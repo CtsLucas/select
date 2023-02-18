@@ -46,7 +46,7 @@ export function Journey() {
         backgroundImage={journey?.medias.banner ? journey?.medias.banner : ''}
       >
         <BannerContent>
-          <strong>{journey?.title}</strong>
+          <h1>{journey?.title}</h1>
 
           <p>{journey?.description}</p>
         </BannerContent>
