@@ -75,7 +75,7 @@ export function Course() {
         backgroundImage={course?.medias.thumb ? course?.medias.thumb : ''}
       >
         <BannerContent>
-          <strong>{course?.title}</strong>
+          <h1>{course?.title}</h1>
 
           <p>{course?.description}</p>
         </BannerContent>
