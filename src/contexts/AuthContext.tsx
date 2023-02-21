@@ -7,9 +7,11 @@ import {
 } from 'react';
 import {
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   User,
   UserCredential,
@@ -22,6 +24,7 @@ interface AuthContextType {
   currentUser: User | null;
   signUp: (email: string, password: string) => Promise<UserCredential>;
   signIn: (email: string, password: string) => Promise<UserCredential>;
+  signInWithGoogle: () => Promise<UserCredential>;
   logOut: () => Promise<void>;
   resetPassword: (email: string) => Promise<void>;
 }
@@ -42,6 +45,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   function signIn(email: string, password: string) {
     return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  function signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+
+    return signInWithPopup(auth, provider);
   }
 
   function logOut() {
@@ -71,6 +80,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         currentUser,
         signUp,
         signIn,
+        signInWithGoogle,
         logOut,
         resetPassword,
       }}

@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import { EnvelopeSimple, Lock, LockSimple } from 'phosphor-react';
+import { EnvelopeSimple, GoogleLogo, Lock, LockSimple } from 'phosphor-react';
 
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -13,7 +13,7 @@ import { Button } from '../../components/Button';
 import { LoginContainer, LoginForm, LoginHeader } from './styles';
 
 export function Login() {
-  const { signIn } = useAuth();
+  const { signIn, signInWithGoogle } = useAuth();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
@@ -38,6 +38,19 @@ export function Login() {
     } catch (error) {
       alert('Erro ao fazer login');
 
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleSignInWithGoogle() {
+    setLoading(true);
+
+    try {
+      await signInWithGoogle();
+      navigate('/home');
+    } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
@@ -81,6 +94,15 @@ export function Login() {
 
         <Button type="submit" disabled={loading}>
           Fazer Login
+        </Button>
+
+        <Button
+          type="button"
+          icon={<GoogleLogo weight="bold" size={24} />}
+          disabled={loading}
+          onClick={handleSignInWithGoogle}
+        >
+          Entrar com o Google
         </Button>
 
         <div className="sign-up">

@@ -11,10 +11,11 @@ export const ButtonContainer = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
 
   color: ${({ theme }) => theme.colors.zinc[100]};
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.5rem;
 
   &:hover {
