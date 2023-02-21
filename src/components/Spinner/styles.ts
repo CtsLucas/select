@@ -30,7 +30,7 @@ export const SpinnerContainer = styled.div<SpinnerProps>`
   font-size: ${({ size }) => `${size}px`};
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
-  transform: translateZ(0);
+  transform: translateZ(0) rotate(90deg);
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
 
