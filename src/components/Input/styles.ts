@@ -34,6 +34,12 @@ export const InputTextContainer = styled.div`
       background: ${({ theme }) => theme.colors.zinc[700]};
       border: 1px solid ${({ theme }) => theme.colors.indigo[300]};
     }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.zinc[800]} inset;
+      -webkit-text-fill-color: ${({ theme }) =>
+    theme.colors.zinc[300]}!important;
+    }
   }
 
   & > svg {
