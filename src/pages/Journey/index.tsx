@@ -38,6 +38,8 @@ export function Journey() {
 
   useEffect(() => {
     fetchCourses();
+
+    window.scrollTo(0, 0);
   }, []);
 
   return (

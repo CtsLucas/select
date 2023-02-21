@@ -67,6 +67,8 @@ export function Course() {
 
   useEffect(() => {
     fetchCourses();
+
+    window.scrollTo(0, 0);
   }, []);
 
   return (
