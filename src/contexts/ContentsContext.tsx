@@ -15,6 +15,7 @@ import { api } from '../lib/axios';
 interface ContentsContextType {
   contents: Contents;
   loading: boolean;
+  handleLoading: (value?: boolean) => void;
 }
 
 export const ContentsContext = createContext({} as ContentsContextType);
@@ -32,6 +33,10 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
   const [contents, setContents] = useState<Contents>({});
   const [loading, setLoading] = useState(true);
 
+  function handleLoading(value?: boolean) {
+    setLoading(value ?? !loading);
+  }
+
   function getDetailsFromCourses(journey: CourseType[]) {
     const countCourses = journey.length;
 
@@ -46,7 +51,7 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
   }
 
   const fetchContents = useCallback(async () => {
-    setLoading(true);
+    handleLoading(true);
     try {
       const { data: journeysData } = await api.get('/journeys');
 
@@ -79,7 +84,7 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
     } catch (err) {
       console.log('error: ', err);
     } finally {
-      setLoading(false);
+      handleLoading(false);
     }
   }, []);
 
@@ -88,7 +93,7 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
   }, []);
 
   return (
-    <ContentsContext.Provider value={{ contents, loading }}>
+    <ContentsContext.Provider value={{ contents, loading, handleLoading }}>
       {children}
     </ContentsContext.Provider>
   );
