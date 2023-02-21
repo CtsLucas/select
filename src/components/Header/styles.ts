@@ -24,22 +24,3 @@ export const HeaderContent = styled.div`
     }
   }
 `;
-
-export const IconAvatar = styled.div`
-  background: ${({ theme }) => theme.colors.indigo[600]};
-  padding: 0.5rem;
-  width: 2rem;
-  height: 2rem;
-  border: 1px solid ${({ theme }) => theme.colors.zinc[100]};
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  & > span {
-    font-size: 0.75rem;
-    font-weight: 500;
-    line-height: 1rem;
-  }
-`;

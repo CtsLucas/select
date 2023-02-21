@@ -1,7 +1,8 @@
-import { HeaderContainer, HeaderContent, IconAvatar } from './styles';
+import { HeaderContainer, HeaderContent } from './styles';
 
 import logoSVG from '../../assets/logo.svg';
 import { Link } from 'react-router-dom';
+import { DropDownMenu } from '../DropDownMenu';
 
 export function Header() {
   return (
@@ -11,9 +12,7 @@ export function Header() {
           <img src={logoSVG} alt="" />
         </Link>
 
-        <IconAvatar>
-          <span>LC</span>
-        </IconAvatar>
+        <DropDownMenu />
       </HeaderContent>
     </HeaderContainer>
   );
