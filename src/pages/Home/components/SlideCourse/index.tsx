@@ -39,7 +39,7 @@ export function SlideCourse({ data, onLoading }: SlideCourseProps) {
   }, [thumb]);
 
   return (
-    <SlideCourseContainer to={`/courses/${id}`}>
+    <SlideCourseContainer to={`../courses/${id}`}>
       <SlideIcon imageURL={thumb} />
       <SlideCourseWrapper>
         <SlideCourseHeader>

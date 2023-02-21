@@ -68,7 +68,7 @@ export function SlideBanner({ data, onLoading }: SlideBannerProps) {
         </SlideBannerContent>
 
         <SlideBannerFooter>
-          <LinkButton to={`/courses/${id}`}>
+          <LinkButton to={`../courses/${id}`}>
             <Plus size={16} weight="bold" />
             <span>Mais Detalhes</span>
           </LinkButton>

@@ -38,7 +38,7 @@ export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
   }
 
   return (
-    <SlideJourneyContainer to={`journeys/${id}`}>
+    <SlideJourneyContainer to={`../journeys/${id}`}>
       <SlideJourneyHeader>
         <img src={thumb} alt="" onLoad={handleLoading} />
         <strong>{title}</strong>

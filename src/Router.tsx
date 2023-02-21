@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { DefaultLayout } from './layouts/DefaultLayout';
-
+import { PrivateRoute } from './components/PrivateRoute';
 import { Home } from './pages/Home';
 import { Journey } from './pages/Journey';
 import { Course } from './pages/Course';
@@ -15,8 +14,8 @@ export function Router() {
       <Route path="/login" element={<Login />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/" element={<DefaultLayout />}>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<PrivateRoute />}>
+        <Route path="/home" element={<Home />} />
         <Route path="/journeys/:id" element={<Journey />} />
         <Route path="/courses/:id" element={<Course />} />
       </Route>

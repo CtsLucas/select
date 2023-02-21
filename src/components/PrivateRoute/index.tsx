@@ -1,17 +1,11 @@
-import { ReactNode, useContext } from 'react';
+import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 
 import { AuthContext } from '../../contexts/AuthContext';
+import { DefaultLayout } from '../../layouts/DefaultLayout';
 
-interface PrivateRouteProps {
-  children: ReactNode;
-}
-export const PrivateRoute = ({ children }: PrivateRouteProps) => {
+export const PrivateRoute = () => {
   const { currentUser } = useContext(AuthContext);
 
-  if (!currentUser) {
-    return <Navigate to="/login" replace />;
-  }
-
-  return children;
+  return currentUser ? <DefaultLayout /> : <Navigate to="/login" />;
 };

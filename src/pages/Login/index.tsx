@@ -34,8 +34,10 @@ export function Login() {
 
     try {
       await signIn(email, password);
-      navigate('/');
+      navigate('/home');
     } catch (error) {
+      alert('Erro ao fazer login');
+
       console.log(error);
     } finally {
       setLoading(false);
