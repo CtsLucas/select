@@ -2,6 +2,7 @@ import {
   createContext,
   ReactNode,
   useCallback,
+  useContext,
   useEffect,
   useState,
 } from 'react';
@@ -13,6 +14,7 @@ import { api } from '../lib/axios';
 
 interface ContentsContextType {
   contents: Contents;
+  loading: boolean;
 }
 
 export const ContentsContext = createContext({} as ContentsContextType);
@@ -28,6 +30,7 @@ interface Contents {
 
 export function ContentsProvider({ children }: ContentsProviderProps) {
   const [contents, setContents] = useState<Contents>({});
+  const [loading, setLoading] = useState(true);
 
   function getDetailsFromCourses(journey: CourseType[]) {
     const countCourses = journey.length;
@@ -43,6 +46,7 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
   }
 
   const fetchContents = useCallback(async () => {
+    setLoading(true);
     try {
       const { data: journeysData } = await api.get('/journeys');
 
@@ -74,6 +78,8 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
       }));
     } catch (err) {
       console.log('error: ', err);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -82,8 +88,12 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
   }, []);
 
   return (
-    <ContentsContext.Provider value={{ contents }}>
+    <ContentsContext.Provider value={{ contents, loading }}>
       {children}
     </ContentsContext.Provider>
   );
+}
+
+export function useContent() {
+  return useContext(ContentsContext);
 }
