@@ -16,6 +16,7 @@ import {
 } from 'firebase/auth';
 
 import { auth } from '../lib/firebase';
+import { Loader } from '../components/Loader';
 
 interface AuthContextType {
   currentUser: User | null;
@@ -33,6 +34,7 @@ interface AuthProviderProps {
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [pending, setPending] = useState(true);
 
   function signUp(email: string, password: string) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -53,10 +55,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      setPending(false);
     });
 
     return unsubscribe;
   }, []);
+
+  if (pending) {
+    return <Loader />;
+  }
 
   return (
     <AuthContext.Provider
