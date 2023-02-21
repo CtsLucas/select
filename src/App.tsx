@@ -6,15 +6,18 @@ import { GlobalStyle } from './styles/global';
 import { defaultTheme } from './styles/themes/default';
 
 import { ContentsProvider } from './contexts/ContentsContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <ContentsProvider>
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
+        <AuthProvider>
+          <BrowserRouter>
+            <Router />
+          </BrowserRouter>
+        </AuthProvider>
       </ContentsProvider>
     </ThemeProvider>
   );
