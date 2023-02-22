@@ -10,12 +10,16 @@ import {
 } from './styles';
 
 export function DropDownMenu() {
-  const { logOut } = useAuth();
+  const { logOut, currentUser } = useAuth();
+
+  const avatarName = currentUser?.displayName
+    ? currentUser?.displayName[0].toUpperCase()
+    : currentUser?.email?.[0].toUpperCase() || '';
 
   return (
     <DropdownMenuRoot>
       <DropdownMenuTrigger asChild>
-        <IconAvatar>LS</IconAvatar>
+        <IconAvatar>{avatarName}</IconAvatar>
       </DropdownMenuTrigger>
 
       <DropdownMenuPortal>

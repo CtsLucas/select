@@ -60,7 +60,7 @@ export const DropdownMenuItem = styled(DropdownMenu.Item)`
   }
 `;
 
-export const IconAvatar = styled.button`
+export const IconAvatar = styled.div`
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
@@ -70,4 +70,11 @@ export const IconAvatar = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  color: ${({ theme }) => theme.colors.indigo[500]};
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+
+  cursor: pointer;
 `;
