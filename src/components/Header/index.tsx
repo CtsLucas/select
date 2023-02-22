@@ -8,7 +8,7 @@ export function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>
-        <Link to="/home">
+        <Link to="/">
           <img src={logoSVG} alt="" />
         </Link>
 

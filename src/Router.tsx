@@ -15,7 +15,7 @@ export function Router() {
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/" element={<PrivateRoute />}>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/journeys/:id" element={<Journey />} />
         <Route path="/courses/:id" element={<Course />} />
       </Route>

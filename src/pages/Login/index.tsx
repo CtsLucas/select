@@ -34,7 +34,7 @@ export function Login() {
 
     try {
       await signIn(email, password);
-      navigate('/home');
+      navigate('/');
     } catch (error) {
       alert('Erro ao fazer login');
 
@@ -49,7 +49,7 @@ export function Login() {
 
     try {
       await signInWithGoogle();
-      navigate('/home');
+      navigate('/');
     } catch (error) {
       console.log(error);
     } finally {
