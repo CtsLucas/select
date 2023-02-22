@@ -1,17 +1,37 @@
 import { ReactNode } from 'react';
 
-import { BannerOverlay, BannerWrapper } from './styles';
+import {
+  BannerContent,
+  BannerDescription,
+  BannerOverlay,
+  BannerTitle,
+  BannerWrapper,
+} from './styles';
 
 interface BannerProps {
   backgroundImage: string;
-  children: ReactNode;
+  children?: ReactNode;
+  title?: string;
+  description?: string;
 }
 
-export function Banner({ backgroundImage, children }: BannerProps) {
+export function Banner({
+  backgroundImage,
+  children,
+  title,
+  description,
+}: BannerProps) {
   return (
     <BannerWrapper imageURL={backgroundImage}>
       <BannerOverlay />
-      {children}
+      {children ? (
+        children
+      ) : (
+        <BannerContent>
+          <BannerTitle>{title}</BannerTitle>
+          <BannerDescription>{description}</BannerDescription>
+        </BannerContent>
+      )}
     </BannerWrapper>
   );
 }

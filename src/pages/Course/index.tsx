@@ -10,13 +10,7 @@ import { ContentsContext } from '../../contexts/ContentsContext';
 import { Banner } from '../../components/Banner';
 import { Accordion, ModuleType } from './components/Accordion';
 
-import {
-  CourseContainer,
-  BannerContent,
-  CourseContent,
-  Details,
-  Modules,
-} from './styles';
+import { CourseContainer, CourseContent, Details, Modules } from './styles';
 
 interface ResponseProps {
   modules: ModuleProps[];
@@ -75,13 +69,9 @@ export function Course() {
     <CourseContainer>
       <Banner
         backgroundImage={course?.medias.thumb ? course?.medias.thumb : ''}
-      >
-        <BannerContent>
-          <h1>{course?.title}</h1>
-
-          <p>{course?.description}</p>
-        </BannerContent>
-      </Banner>
+        title={course?.title}
+        description={course?.description}
+      />
 
       <CourseContent>
         <Details>

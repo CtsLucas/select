@@ -11,7 +11,6 @@ import { CardCourse } from './components/CardCourse';
 import { Banner } from '../../components/Banner';
 
 import {
-  BannerContent,
   Detail,
   DetailsContainer,
   JourneyContainer,
@@ -46,13 +45,9 @@ export function Journey() {
     <JourneyContainer>
       <Banner
         backgroundImage={journey?.medias.banner ? journey?.medias.banner : ''}
-      >
-        <BannerContent>
-          <h1>{journey?.title}</h1>
-
-          <p>{journey?.description}</p>
-        </BannerContent>
-      </Banner>
+        title={journey?.title}
+        description={journey?.description}
+      />
 
       <DetailsContainer>
         <Detail>
