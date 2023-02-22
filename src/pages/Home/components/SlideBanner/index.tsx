@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { ChartBar, ClockAfternoon, MonitorPlay, Plus } from 'phosphor-react';
 
 import { Banner } from '../../../../components/Banner';

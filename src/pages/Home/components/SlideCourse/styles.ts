@@ -16,8 +16,8 @@ interface SlideIconProps {
 }
 
 export const SlideIcon = styled.div<SlideIconProps>`
-  background-image: url(${({ imageURL }) => imageURL});
-
+  background-image: ${({ imageURL }) =>
+    imageURL ? `url(${imageURL})` : 'url(/assets/images/thumb_default.jpeg)'};
   height: 9.25rem;
   display: block;
   border-top-right-radius: 4px;

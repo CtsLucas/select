@@ -19,7 +19,8 @@ interface CardCourseImageProps {
 }
 
 export const CardCourseImage = styled.div<CardCourseImageProps>`
-  background-image: ${({ imageURL }) => `url(${imageURL})`};
+  background-image: ${({ imageURL }) =>
+    imageURL ? `url(${imageURL})` : 'url(/assets/images/thumb_default.jpeg)'};
   height: 9.25rem;
 
   display: block;

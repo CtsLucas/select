@@ -5,7 +5,8 @@ interface BannerProps {
 }
 
 export const BannerWrapper = styled.div<BannerProps>`
-  background-image: ${({ imageURL }) => `url(${imageURL})`};
+  background-image: ${({ imageURL }) =>
+    imageURL ? `url(${imageURL})` : 'url(/assets/images/thumb_default.jpeg)'};
   padding: 1.5rem;
 
   position: relative;
