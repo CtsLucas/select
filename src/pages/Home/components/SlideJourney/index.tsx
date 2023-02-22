@@ -1,4 +1,5 @@
 import { ClockAfternoon } from 'phosphor-react';
+import { JourneysTitle } from '../../../../@types/Contents';
 
 import { formatDuration } from '../../../../utils/formatters';
 
@@ -12,7 +13,7 @@ import {
 export interface SlideJourneyType {
   id: string;
   thumb: string;
-  title: string;
+  title: JourneysTitle;
   description: string;
   countCourses?: number;
   duration?: number;
@@ -38,7 +39,7 @@ export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
   }
 
   return (
-    <SlideJourneyContainer to={`../journeys/${id}`}>
+    <SlideJourneyContainer to={`../journeys/${id}`} journeyTitle={title}>
       <SlideJourneyHeader>
         <img src={thumb} alt="" onLoad={handleLoading} />
         <strong>{title}</strong>

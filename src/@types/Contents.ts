@@ -1,4 +1,4 @@
-export interface Journey {
+export interface JourneyType {
   coursesID: string[];
   description: string;
   group: string;
@@ -57,4 +57,11 @@ export interface Date {
 
 export interface LessonID {
   lessonID: string;
+}
+
+export enum JourneysTitle {
+  BackEnd = 'Desenvolvimento Back End',
+  FrontEnd = 'Desenvolvimento Front End',
+  DigitalSkills = 'Habilidades Digitais',
+  Data = 'Dados',
 }
