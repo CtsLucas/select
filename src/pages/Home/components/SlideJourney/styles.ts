@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { JourneysTitle } from '../../../../@types/Contents';
 
 interface SlideJourneyProps {
-  journeyTitle: JourneysTitle ;
+  journeyTitle: JourneysTitle;
 }
 
 const slideJourneyBackground = {

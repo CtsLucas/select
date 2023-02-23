@@ -26,12 +26,14 @@ const slideVariant = {
     min-width: initial;
   `,
   journey: css`
-    max-width: 340px;
-    min-width: 340px;
+    max-width: 420px;
+    min-width: 420px;
+    padding: 0.25rem 0;
   `,
   course: css`
     max-width: 248px;
     min-width: 248px;
+    padding: 0.25rem 0;
   `,
 };
 
@@ -42,7 +44,6 @@ export const CarouselContent = styled.div<CarouselProps>`
 
   .keen-slider__slide {
     ${({ variant }) => slideVariant[variant] || slideVariant.banner};
-    padding: 0.25rem 0;
   }
 
   .dots {
