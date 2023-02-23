@@ -9,13 +9,13 @@ import { ContentsContext } from '../../contexts/ContentsContext';
 
 import { CardCourse } from './components/CardCourse';
 import { Banner } from '../../components/Banner';
+import { Separator } from '../../components/Separator';
 
 import {
   Detail,
   DetailsContainer,
   JourneyContainer,
   JourneyContent,
-  Separator,
 } from './styles';
 
 export function Journey() {
@@ -57,7 +57,7 @@ export function Journey() {
             <span>{formatDuration(journey?.duration || 0)}</span>
           </div>
         </Detail>
-        <Separator />
+        <Separator size={40} />
         <Detail>
           <strong>Total de cursos</strong>
           <div className="content">

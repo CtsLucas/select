@@ -21,11 +21,6 @@ export const DetailsContainer = styled.div`
   gap: 1.5rem;
 `;
 
-export const Separator = styled.div`
-  border: 1px solid white;
-  height: 2.5rem;
-`;
-
 export const Detail = styled.div`
   display: flex;
   flex-direction: column;
@@ -77,7 +72,7 @@ export const JourneyContent = styled.div`
   padding: 0 1.5rem;
   margin-top: 1.25rem;
   width: 100%;
-  max-width: 90rem;
+  max-width: 75rem;
 
   display: flex;
   flex-direction: column;

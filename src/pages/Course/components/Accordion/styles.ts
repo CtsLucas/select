@@ -17,11 +17,16 @@ export const AccordionTrigger = styled(Accordion.Trigger)`
   width: 100%;
   padding: 1rem 1.5rem;
   border-radius: 8px;
+  transition: all 0.2s ease-in-out;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.indigo[600]};
+  }
 
   & > svg {
     color: ${({ theme }) => theme.colors.zinc[100]};
@@ -36,6 +41,11 @@ export const AccordionTrigger = styled(Accordion.Trigger)`
     font-size: 0.875rem;
     line-height: 1.25rem;
     text-align: start;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
   }
 
   & > span {
@@ -43,6 +53,12 @@ export const AccordionTrigger = styled(Accordion.Trigger)`
     font-weight: 500;
     font-size: 0.875rem;
     line-height: 1rem;
+    white-space: nowrap;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
   }
 
   &:focus {
@@ -58,7 +74,8 @@ export const AccordionContent = styled(Accordion.Content)`
   background: ${({ theme }) => theme.colors.indigo[900]};
   width: 100%;
   padding: 1rem 2rem;
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   margin-top: -10px;
 `;
 
@@ -71,6 +88,10 @@ export const Lesson = styled.div`
 
   &:not(:last-child) {
     margin-bottom: 0.5rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 1rem;
+    }
   }
 
   & > svg {

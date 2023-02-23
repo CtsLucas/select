@@ -10,7 +10,17 @@ import { ContentsContext } from '../../contexts/ContentsContext';
 import { Banner } from '../../components/Banner';
 import { Accordion, ModuleType } from './components/Accordion';
 
-import { CourseContainer, CourseContent, Details, Modules } from './styles';
+import {
+  CourseContainer,
+  CourseContent,
+  CourseDetails,
+  CourseDetailsContent,
+  CourseDetailsHeader,
+  CourseDetailsItem,
+  CourseModules,
+  CourseModulesContent,
+  CourseModulesHeader,
+} from './styles';
 
 interface ResponseProps {
   modules: ModuleProps[];
@@ -74,35 +84,39 @@ export function Course() {
       />
 
       <CourseContent>
-        <Details>
-          <strong>Detalhes do curso</strong>
-          <div className="details-wrapper">
-            <div className="details-item">
+        <CourseDetails>
+          <CourseDetailsHeader>
+            <strong>Detalhes do curso</strong>
+          </CourseDetailsHeader>
+          <CourseDetailsContent>
+            <CourseDetailsItem>
               <MonitorPlay size={24} />
-              <span>{course?.modules.length} Capítulos</span>
-            </div>
-            <div className="details-item">
+              <strong>{course?.modules.length} Capítulos</strong>
+            </CourseDetailsItem>
+            <CourseDetailsItem>
               <FileArrowDown size={24} />
-              <span>0 materiais extras</span>
-            </div>
-            <div className="details-item">
+              <strong>0 materiais extras</strong>
+            </CourseDetailsItem>
+            <CourseDetailsItem>
               <ChartBar size={24} />
-              <span>{formatLevel(course?.level || '')}</span>
-            </div>
-            <div className="details-item">
+              <strong>{formatLevel(course?.level || '')}</strong>
+            </CourseDetailsItem>
+            <CourseDetailsItem>
               <Medal size={24} />
-              Certificado ao concluir o curso
-            </div>
-          </div>
-        </Details>
+              <strong>Certificado ao concluir o curso</strong>
+            </CourseDetailsItem>
+          </CourseDetailsContent>
+        </CourseDetails>
 
-        <Modules>
-          <strong>Capítulos do curso</strong>
+        <CourseModules>
+          <CourseModulesHeader>
+            <strong>Conteúdo do curso</strong>
+          </CourseModulesHeader>
 
-          <div className="modules-wrapper ">
+          <CourseModulesContent>
             <Accordion data={modules} />
-          </div>
-        </Modules>
+          </CourseModulesContent>
+        </CourseModules>
       </CourseContent>
     </CourseContainer>
   );

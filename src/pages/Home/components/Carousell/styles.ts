@@ -42,7 +42,8 @@ export const CarousellContent = styled.div<CarousellProps>`
   }
 
   .keen-slider__slide {
-    ${({ variant }) => slideVariant[variant] || slideVariant.banner}
+    ${({ variant }) => slideVariant[variant] || slideVariant.banner};
+    padding: 0.25rem 0;
   }
 
   .dots {
@@ -80,17 +81,23 @@ export const CarousellContent = styled.div<CarousellProps>`
   .arrow {
     width: 30px;
     height: 100%;
+    color: ${({ theme }) => theme.colors.zinc[500]};
+
     position: absolute;
     top: 50%;
+
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 
-    color: ${({ theme }) => theme.colors.zinc[100]};
-  }
+    &:hover {
+      color: ${({ theme }) => theme.colors.zinc[100]};
+    }
 
-  .arrow:focus {
-    box-shadow: none;
+    &:focus {
+      box-shadow: none;
+    }
   }
 
   .arrow--left {
