@@ -29,6 +29,11 @@ const slideVariant = {
     max-width: 420px;
     min-width: 420px;
     padding: 0.25rem 0;
+
+    @media (max-width: 768px) {
+      max-width: 320px;
+      min-width: 320px;
+    }
   `,
   course: css`
     max-width: 248px;

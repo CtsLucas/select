@@ -15,6 +15,10 @@ export const SlideCourseContainer = styled(Link)`
     transform: translateY(-0.25rem);
     background: ${({ theme }) => theme.colors.indigo[600]};
   }
+
+  &:focus {
+    box-shadow: none;
+  }
 `;
 
 interface SlideIconProps {

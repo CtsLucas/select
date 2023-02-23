@@ -70,9 +70,6 @@ export function Carousel({ slides, variant, title }: CarouselProps) {
         slideChanged(slider: KeenSliderInstance<{}, {}, KeenSliderHooks>) {
           setCurrentSlide(slider.track.details.rel);
         },
-        created() {
-          handleLoading();
-        },
       });
       break;
     case 'journey':
@@ -82,9 +79,6 @@ export function Carousel({ slides, variant, title }: CarouselProps) {
         slides: {
           perView: 'auto',
           spacing: 15,
-        },
-        created() {
-          handleLoading();
         },
       });
       break;
@@ -96,9 +90,6 @@ export function Carousel({ slides, variant, title }: CarouselProps) {
         slides: {
           perView: 'auto',
           spacing: 15,
-        },
-        created() {
-          handleLoading();
         },
       });
 
