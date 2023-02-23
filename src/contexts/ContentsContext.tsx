@@ -8,7 +8,7 @@ import {
 } from 'react';
 import axios from 'axios';
 
-import { CourseType, Journey } from '../@types/Contents';
+import { CourseType, JourneyType } from '../@types/Contents';
 
 import { api } from '../lib/axios';
 
@@ -26,7 +26,7 @@ interface ContentsProviderProps {
 
 interface Contents {
   courses?: CourseType[];
-  journeys?: Journey[];
+  journeys?: JourneyType[];
 }
 
 export function ContentsProvider({ children }: ContentsProviderProps) {
@@ -55,7 +55,9 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
     try {
       const { data: journeysData } = await api.get('/journeys');
 
-      const journeysId = journeysData.map((jorney: Journey) => jorney.pathID);
+      const journeysId = journeysData.map(
+        (jorney: JourneyType) => jorney.pathID
+      );
 
       const coursesData = await axios.all<Array<CourseType>>(
         journeysId.map((id: string) =>
@@ -63,14 +65,16 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
         )
       );
 
-      const journeys = journeysData.map((journey: Journey, index: number) => {
-        const details = getDetailsFromCourses(coursesData[index]);
+      const journeys = journeysData.map(
+        (journey: JourneyType, index: number) => {
+          const details = getDetailsFromCourses(coursesData[index]);
 
-        return {
-          ...journey,
-          ...details,
-        };
-      });
+          return {
+            ...journey,
+            ...details,
+          };
+        }
+      );
 
       const { data: courses } = await api.post('/list-type', {
         listType: 'COURSES',

@@ -53,7 +53,9 @@ export function Home() {
 
     const courses = contents.courses
       ? getRandomItens(
-        contents.courses.filter((course) => course.duration > 0),
+        contents.courses.filter(
+          (course) => course.duration > 0 && course.medias.thumb
+        ),
         20
       ).map((course) => {
         return {

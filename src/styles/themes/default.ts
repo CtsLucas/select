@@ -31,6 +31,12 @@ export const defaultTheme = {
       opacity: {
         50: 'rgba(0, 0, 0, 0.5)',
       },
+      journeys: {
+        frontEnd: '#146666',
+        backEnd: '#A62947',
+        digitalSkills: '#7E29A6',
+        data: '#0E7306',
+      },
     },
   },
 } as const;

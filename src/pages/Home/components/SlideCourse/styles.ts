@@ -5,10 +5,16 @@ export const SlideCourseContainer = styled(Link)`
   background: ${({ theme }) => theme.colors.indigo[900]};
   width: 100%;
   border-radius: 8px;
+  transition: all 0.2s ease-in-out;
 
   display: flex;
   flex-direction: column;
   text-decoration: none;
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    background: ${({ theme }) => theme.colors.indigo[600]};
+  }
 `;
 
 interface SlideIconProps {
@@ -16,8 +22,8 @@ interface SlideIconProps {
 }
 
 export const SlideIcon = styled.div<SlideIconProps>`
-  background-image: url(${({ imageURL }) => imageURL});
-
+  background-image: ${({ imageURL }) =>
+    imageURL ? `url(${imageURL})` : 'url(/assets/images/thumb_default.jpeg)'};
   height: 9.25rem;
   display: block;
   border-top-right-radius: 4px;

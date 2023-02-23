@@ -66,6 +66,7 @@ export const IconAvatar = styled.div`
   border-radius: 50%;
   background: ${({ theme }) => theme.colors.zinc[100]};
   border: 2px solid ${({ theme }) => theme.colors.indigo[500]};
+  transition: all 0.2s ease-in-out;
 
   display: flex;
   align-items: center;
@@ -77,4 +78,11 @@ export const IconAvatar = styled.div`
   line-height: 1.5rem;
 
   cursor: pointer;
+
+  &:hover,
+  &[aria-expanded="true"] {
+    background: ${({ theme }) => theme.colors.indigo[500]};
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    border-color: ${({ theme }) => theme.colors.zinc[100]};
+  }
 `;

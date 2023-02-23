@@ -1,12 +1,35 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const SlideJourneyContainer = styled(Link)`
+import { JourneysTitle } from '../../../../@types/Contents';
+
+interface SlideJourneyProps {
+  journeyTitle: JourneysTitle ;
+}
+
+const slideJourneyBackground = {
+  'Desenvolvimento Back End': css`
+    background: ${({ theme }) => theme.colors.background.journeys.backEnd};
+  `,
+  'Desenvolvimento Front End': css`
+    background: ${({ theme }) => theme.colors.background.journeys.frontEnd};
+  `,
+  'Habilidades Digitais': css`
+    background: ${({ theme }) =>
+    theme.colors.background.journeys.digitalSkills};
+  `,
+  Dados: css`
+    background: ${({ theme }) => theme.colors.background.journeys.data};
+  `,
+} as const;
+
+export const SlideJourneyContainer = styled(Link)<SlideJourneyProps>`
   background: ${({ theme }) => theme.colors.indigo[900]};
   width: 100%;
   height: 20.25rem;
   border-radius: 8px;
   padding: 1.5rem;
+  transition: all 0.2s ease-in-out;
 
   display: flex;
   flex-direction: column;
@@ -17,6 +40,12 @@ export const SlideJourneyContainer = styled(Link)`
 
   &:focus {
     box-shadow: none;
+  }
+
+  &:hover {
+    transform: translateY(-0.25rem);
+    ${({ journeyTitle, theme }) =>
+    slideJourneyBackground[journeyTitle] || theme.colors.indigo[500]}
   }
 `;
 
