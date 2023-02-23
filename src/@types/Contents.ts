@@ -5,7 +5,7 @@ export interface JourneyType {
   medias: Medias;
   pathID: string;
   slug: string;
-  title: string;
+  title: JourneysTitle;
   duration?: number;
   countCourses?: number;
 }
