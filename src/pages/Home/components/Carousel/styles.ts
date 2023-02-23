@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components';
 
-interface CarousellProps {
+interface CarouselProps {
   variant: 'banner' | 'journey' | 'course';
 }
 
-export const CarousellContainer = styled.div<CarousellProps>`
-  padding-left: ${({ variant }) => (variant !== 'banner' ? '1.5rem' : '0')};
+export const CarouselContainer = styled.div<CarouselProps>`
   width: 100%;
 
   display: flex;
@@ -36,7 +35,7 @@ const slideVariant = {
   `,
 };
 
-export const CarousellContent = styled.div<CarousellProps>`
+export const CarouselContent = styled.div<CarouselProps>`
   .navigation-wrapper {
     position: relative;
   }
