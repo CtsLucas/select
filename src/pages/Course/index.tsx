@@ -13,6 +13,9 @@ import { Accordion, ModuleType } from './components/Accordion';
 import {
   CourseContainer,
   CourseContent,
+  CourseDescription,
+  CourseDescriptionContent,
+  CourseDescriptionHeader,
   CourseDetails,
   CourseDetailsContent,
   CourseDetailsHeader,
@@ -20,6 +23,7 @@ import {
   CourseModules,
   CourseModulesContent,
   CourseModulesHeader,
+  CourseWrapper,
 } from './styles';
 
 interface ResponseProps {
@@ -108,15 +112,35 @@ export function Course() {
           </CourseDetailsContent>
         </CourseDetails>
 
-        <CourseModules>
-          <CourseModulesHeader>
-            <strong>Conteúdo do curso</strong>
-          </CourseModulesHeader>
+        <CourseWrapper>
+          <CourseModules>
+            <CourseModulesHeader>
+              <strong>Conteúdo do curso</strong>
+            </CourseModulesHeader>
 
-          <CourseModulesContent>
-            <Accordion data={modules} />
-          </CourseModulesContent>
-        </CourseModules>
+            <CourseModulesContent>
+              <Accordion data={modules} />
+            </CourseModulesContent>
+          </CourseModules>
+
+          <CourseDescription>
+            <CourseDescriptionHeader>
+              <strong>Sobre o curso</strong>
+            </CourseDescriptionHeader>
+
+            <CourseDescriptionContent>
+              <p>{course?.description}</p>
+            </CourseDescriptionContent>
+
+            <CourseDescriptionHeader>
+              <strong>Autor</strong>
+            </CourseDescriptionHeader>
+
+            <CourseDescriptionContent>
+              <p>{course?.instructor}</p>
+            </CourseDescriptionContent>
+          </CourseDescription>
+        </CourseWrapper>
       </CourseContent>
     </CourseContainer>
   );
