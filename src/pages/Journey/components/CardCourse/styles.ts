@@ -104,10 +104,12 @@ export const CardCourseFooter = styled.div`
 `;
 
 export const CardButton = styled.button`
-  background: ${({ theme }) => theme.colors.indigo[600]};
+  background: ${({ theme }) => theme.colors.indigo[700]};
   margin-top: 1.5rem;
   padding: 1rem 0;
   border-radius: 8px;
+  border: 2px solid transparent;
+  transition: all 0.2s ease-in-out;
 
   display: flex;
   justify-content: center;
@@ -116,4 +118,10 @@ export const CardButton = styled.button`
   color: ${({ theme }) => theme.colors.zinc[100]};
   font-size: 1rem;
   font-weight: 700;
+  line-height: 1.25rem;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.indigo[500]};
+    border-color: ${({ theme }) => theme.colors.indigo[300]};
+  }
 `;

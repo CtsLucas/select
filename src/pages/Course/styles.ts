@@ -76,12 +76,28 @@ export const CourseDetailsItem = styled.div`
   }
 `;
 
+export const CourseWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    // align-items: center;
+  }
+`;
+
 export const CourseModules = styled.div`
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 0.75rem;
+
+  flex: 1;
 `;
 
 export const CourseModulesHeader = styled.div`
@@ -100,9 +116,34 @@ export const CourseModulesHeader = styled.div`
 
 export const CourseModulesContent = styled.div`
   width: 100%;
-  max-width: 50rem;
 
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 `;
+
+export const CourseDescription = styled.div`
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.75rem;
+`;
+
+export const CourseDescriptionHeader = styled.div`
+  & > strong {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.25rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.25rem;
+      line-height: 1.5rem;
+    }
+  }
+`;
+
+export const CourseDescriptionContent = styled.div``;

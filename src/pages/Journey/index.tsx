@@ -7,9 +7,9 @@ import { CourseType } from '../../@types/Contents';
 import { formatDuration } from '../../utils/formatters';
 import { ContentsContext } from '../../contexts/ContentsContext';
 
-import { CardCourse } from './components/CardCourse';
 import { Banner } from '../../components/Banner';
 import { Separator } from '../../components/Separator';
+import { CarouselCourse } from './components/CarouselCourse';
 
 import {
   Detail,
@@ -72,9 +72,9 @@ export function Journey() {
       </DetailsContainer>
 
       <JourneyContent>
-        {courses.map((course) => {
-          return <CardCourse data={course} key={course.id} />;
-        })}
+        <h2>{journey?.title}</h2>
+
+        <CarouselCourse slides={courses} />
       </JourneyContent>
     </JourneyContainer>
   );

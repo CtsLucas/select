@@ -1,4 +1,5 @@
 import { ChartBar, Clock } from 'phosphor-react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { CourseType } from '../../../../@types/Contents';
@@ -14,9 +15,10 @@ import {
 
 interface CardCourseProps {
   data: CourseType;
+  onLoading: () => void;
 }
 
-export function CardCourse({ data }: CardCourseProps) {
+export function CardCourse({ data, onLoading }: CardCourseProps) {
   const navigate = useNavigate();
   const {
     id,
@@ -27,6 +29,16 @@ export function CardCourse({ data }: CardCourseProps) {
     level,
     duration,
   } = data;
+
+  function handleLoading() {
+    onLoading();
+  }
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = thumb;
+    image.onload = handleLoading;
+  }, [thumb]);
 
   return (
     <CardCourseContainer>

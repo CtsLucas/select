@@ -8,15 +8,15 @@ import { SlideBanner, SlideBannerType } from '../SlideBanner';
 import { SlideCourse, SlideCourseType } from '../SlideCourse';
 import { SlideJourney, SlideJourneyType } from '../SlideJourney';
 
-import { CarousellContainer, CarousellContent } from './styles';
+import { CarouselContainer, CarouselContent } from './styles';
 
-interface CarousellProps {
+interface CarouselProps {
   slides: SlideBannerType[] | SlideJourneyType[] | SlideCourseType[];
   variant: 'banner' | 'journey' | 'course';
   title?: string;
 }
 
-export function Carousell({ slides, variant, title }: CarousellProps) {
+export function Carousel({ slides, variant, title }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [options, setOptions] = useState({});
@@ -70,9 +70,6 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
         slideChanged(slider: KeenSliderInstance<{}, {}, KeenSliderHooks>) {
           setCurrentSlide(slider.track.details.rel);
         },
-        created() {
-          handleLoading();
-        },
       });
       break;
     case 'journey':
@@ -82,9 +79,6 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
         slides: {
           perView: 'auto',
           spacing: 15,
-        },
-        created() {
-          handleLoading();
         },
       });
       break;
@@ -97,9 +91,6 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
           perView: 'auto',
           spacing: 15,
         },
-        created() {
-          handleLoading();
-        },
       });
 
       break;
@@ -111,10 +102,10 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
   }
 
   return (
-    <CarousellContainer variant={variant}>
+    <CarouselContainer variant={variant}>
       {title && <strong>{title}</strong>}
 
-      <CarousellContent variant={variant}>
+      <CarouselContent variant={variant}>
         <div className="navigation-wrapper">
           <div ref={sliderRef} className="keen-slider">
             {slides?.map((item) => {
@@ -185,7 +176,7 @@ export function Carousell({ slides, variant, title }: CarousellProps) {
               );
             })}
         </div>
-      </CarousellContent>
-    </CarousellContainer>
+      </CarouselContent>
+    </CarouselContainer>
   );
 }

@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { ContentsContext } from '../../contexts/ContentsContext';
 import { getRandomItens } from '../../utils/getRandomItens';
 
-import { Carousell } from './components/Carousell';
+import { Carousel } from './components/Carousel';
 import { SlideBannerType } from './components/SlideBanner';
 import { SlideCourseType } from './components/SlideCourse';
 import { SlideJourneyType } from './components/SlideJourney';
@@ -76,15 +76,15 @@ export function Home() {
 
   return (
     <HomeContainer>
-      <Carousell slides={banners} variant="banner" />
+      <Carousel slides={banners} variant="banner" />
 
       <HomeContent>
-        <Carousell
+        <Carousel
           slides={journeys}
           variant="journey"
           title="Jornadas a serem trilhadas"
         />
-        <Carousell
+        <Carousel
           slides={courses}
           variant="course"
           title="Cursos disponíveis"

@@ -1,11 +1,10 @@
 import styled, { css } from 'styled-components';
 
-interface CarousellProps {
+interface CarouselProps {
   variant: 'banner' | 'journey' | 'course';
 }
 
-export const CarousellContainer = styled.div<CarousellProps>`
-  padding-left: ${({ variant }) => (variant !== 'banner' ? '1.5rem' : '0')};
+export const CarouselContainer = styled.div<CarouselProps>`
   width: 100%;
 
   display: flex;
@@ -27,23 +26,29 @@ const slideVariant = {
     min-width: initial;
   `,
   journey: css`
-    max-width: 340px;
-    min-width: 340px;
+    max-width: 420px;
+    min-width: 420px;
+    padding: 0.25rem 0;
+
+    @media (max-width: 768px) {
+      max-width: 320px;
+      min-width: 320px;
+    }
   `,
   course: css`
     max-width: 248px;
     min-width: 248px;
+    padding: 0.25rem 0;
   `,
 };
 
-export const CarousellContent = styled.div<CarousellProps>`
+export const CarouselContent = styled.div<CarouselProps>`
   .navigation-wrapper {
     position: relative;
   }
 
   .keen-slider__slide {
     ${({ variant }) => slideVariant[variant] || slideVariant.banner};
-    padding: 0.25rem 0;
   }
 
   .dots {
