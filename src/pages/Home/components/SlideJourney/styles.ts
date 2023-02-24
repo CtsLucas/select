@@ -1,27 +1,9 @@
 import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-
-import { JourneysTitle } from '../../../../@types/Contents';
+import styled from 'styled-components';
 
 interface SlideJourneyProps {
-  journeyTitle: JourneysTitle;
+  title: string;
 }
-
-const slideJourneyBackground = {
-  'Desenvolvimento Back End': css`
-    background: ${({ theme }) => theme.colors.background.journeys.backEnd};
-  `,
-  'Desenvolvimento Front End': css`
-    background: ${({ theme }) => theme.colors.background.journeys.frontEnd};
-  `,
-  'Habilidades Digitais': css`
-    background: ${({ theme }) =>
-    theme.colors.background.journeys.digitalSkills};
-  `,
-  Dados: css`
-    background: ${({ theme }) => theme.colors.background.journeys.data};
-  `,
-} as const;
 
 export const SlideJourneyContainer = styled(Link)<SlideJourneyProps>`
   background: ${({ theme }) => theme.colors.indigo[900]};
@@ -44,8 +26,16 @@ export const SlideJourneyContainer = styled(Link)<SlideJourneyProps>`
 
   &:hover {
     transform: translateY(-0.25rem);
-    ${({ journeyTitle, theme }) =>
-    slideJourneyBackground[journeyTitle] || theme.colors.indigo[500]}
+    background: ${({ theme, title }) =>
+    title === 'DESENVOLVIMENTO BACK END'
+      ? theme.colors.background.journeys.backEnd
+      : title === 'DESENVOLVIMENTO FRONT END'
+        ? theme.colors.background.journeys.frontEnd
+        : title === 'HABILIDADES DIGITAIS'
+          ? theme.colors.background.journeys.digitalSkills
+          : title === 'DADOS'
+            ? theme.colors.background.journeys.data
+            : theme.colors.indigo[600]};
   }
 `;
 
