@@ -5,6 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuPortal,
   DropdownMenuRoot,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
   IconAvatar,
 } from './styles';
@@ -24,6 +25,8 @@ export function DropDownMenu() {
 
       <DropdownMenuPortal>
         <DropdownMenuContent>
+          <DropdownMenuItem>{currentUser?.email}</DropdownMenuItem>
+          <DropdownMenuSeparator />
           <DropdownMenuItem onClick={logOut}>Sair</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenuPortal>
