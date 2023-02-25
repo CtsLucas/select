@@ -1,8 +1,9 @@
-import { ChartBar, Clock } from 'phosphor-react';
+import { Clock } from 'phosphor-react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { CourseType } from '../../../../@types/Contents';
+import { LevelIcon } from '../../../../components/LevelIcon';
 import { formatDuration, formatLevel } from '../../../../utils/formatters';
 
 import {
@@ -50,7 +51,7 @@ export function CardCourse({ data, onLoading }: CardCourseProps) {
         <p>{description}</p>
         <CardCourseFooter>
           <span>
-            <ChartBar />
+            <LevelIcon level={level} />
             {formatLevel(level)}
           </span>
           <span>

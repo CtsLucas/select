@@ -21,7 +21,7 @@ export interface CourseType {
   extras: object[];
   id: string;
   instructor: string;
-  level: string;
+  level: 'beginner' | 'intermediate' | 'advanced';
   medias: Medias;
   modules: Module[];
   status: string;

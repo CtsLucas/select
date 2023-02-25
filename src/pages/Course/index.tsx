@@ -1,14 +1,15 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ChartBar, FileArrowDown, Medal, MonitorPlay } from 'phosphor-react';
+import { FileArrowDown, Medal, MonitorPlay } from 'phosphor-react';
 
 import { api } from '../../lib/axios';
 import { LessonType } from '../../@types/Contents';
 import { formatLevel } from '../../utils/formatters';
 import { ContentsContext } from '../../contexts/ContentsContext';
 
-import { Banner } from '../../components/Banner';
 import { Accordion, ModuleType } from './components/Accordion';
+import { Banner } from '../../components/Banner';
+import { LevelIcon } from '../../components/LevelIcon';
 
 import {
   CourseContainer,
@@ -102,7 +103,7 @@ export function Course() {
               <strong>0 materiais extras</strong>
             </CourseDetailsItem>
             <CourseDetailsItem>
-              <ChartBar size={24} />
+              <LevelIcon size={24} level={course?.level} />
               <strong>{formatLevel(course?.level || '')}</strong>
             </CourseDetailsItem>
             <CourseDetailsItem>
