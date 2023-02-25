@@ -7,6 +7,7 @@ import { Course } from './pages/Course';
 import { Login } from './pages/Login';
 import { SignUp } from './pages/SignUp';
 import { ForgotPassword } from './pages/ForgotPassword';
+import { NotFound } from './pages/NotFound';
 
 export function Router() {
   return (
@@ -19,6 +20,8 @@ export function Router() {
         <Route path="/journeys/:id" element={<Journey />} />
         <Route path="/courses/:id" element={<Course />} />
       </Route>
+
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
