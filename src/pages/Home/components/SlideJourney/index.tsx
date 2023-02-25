@@ -56,7 +56,7 @@ export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
             : `${countCourses} Cursos`}
         </span>
         <span>
-          <ClockAfternoon />
+          <ClockAfternoon size={20} />
           {formatDuration(duration)}
         </span>
       </SlideJourneyFooter>

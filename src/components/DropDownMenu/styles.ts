@@ -35,6 +35,9 @@ export const DropdownMenuContent = styled(DropdownMenu.Content)`
   border-radius: 6px;
   margin-top: 5px;
 
+  background: ${({ theme }) => theme.colors.indigo[900]};
+  padding: 0.5rem 0.5rem;
+
   &[data-side="top"] {
     animation: ${slideDownAndFade} 400ms;
   }
@@ -45,19 +48,38 @@ export const DropdownMenuContent = styled(DropdownMenu.Content)`
 `;
 
 export const DropdownMenuItem = styled(DropdownMenu.Item)`
-  background: ${({ theme }) => theme.colors.indigo[900]};
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
 
   color: ${({ theme }) => theme.colors.zinc[300]};
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.5rem;
 
-  &:hover {
+  &:first-child {
+    color: ${({ theme }) => theme.colors.zinc[200]};
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+  }
+
+  &:hover:not(:first-child) {
     background: ${({ theme }) => theme.colors.indigo[500]};
     color: ${({ theme }) => theme.colors.zinc[100]};
+
+    cursor: pointer;
   }
+
+  &:focus {
+    box-shadow: none;
+  }
+`;
+
+export const DropdownMenuSeparator = styled(DropdownMenu.Separator)`
+  height: 1px;
+  background: ${({ theme }) => theme.colors.indigo[500]};
+  margin: 0.5rem 0;
 `;
 
 export const IconAvatar = styled.div`

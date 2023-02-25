@@ -66,6 +66,11 @@ export const SlideCourseHeader = styled.header`
     font-weight: 400;
     line-height: 1rem;
     text-decoration: none;
+
+    @media (min-width: 768px) {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
   }
 `;
 
@@ -75,10 +80,14 @@ export const SlideCourseFooter = styled.footer`
 
   & > span {
     color: ${({ theme }) => theme.colors.zinc[100]};
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    text-decoration: none;
+
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.25rem;
-    text-decoration: none;
   }
 `;

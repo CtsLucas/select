@@ -69,11 +69,20 @@ export const SlideJourneyContent = styled.div`
     line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+
+    @media (min-width: 768px) {
+      line-clamp: 4;
+      -webkit-line-clamp: 4;
+
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
   }
 `;
 
 export const SlideJourneyFooter = styled.footer`
   display: flex;
+  align-items: center;
   gap: 1rem;
 
   & > span {
@@ -83,8 +92,13 @@ export const SlideJourneyFooter = styled.footer`
     align-items: center;
     gap: 0.25rem;
 
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.125rem;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+      line-height: 1.25rem;
+    }
   }
 `;

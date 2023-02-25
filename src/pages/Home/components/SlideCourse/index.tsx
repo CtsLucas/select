@@ -49,11 +49,11 @@ export function SlideCourse({ data, onLoading }: SlideCourseProps) {
 
         <SlideCourseFooter>
           <span>
-            <ChartBar />
+            <ChartBar size={20} />
             {formatLevel(level)}
           </span>
           <span>
-            <Clock />
+            <Clock size={20} />
             {formatDuration(duration)}
           </span>
         </SlideCourseFooter>

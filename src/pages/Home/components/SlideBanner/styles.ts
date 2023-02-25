@@ -84,6 +84,12 @@ export const SlideBannerContent = styled.div`
 
       font-size: 0.875rem;
       font-weight: 500;
+      line-height: 1.125rem;
+
+      @media (min-width: 768px) {
+        font-size: 1rem;
+        line-height: 1.25rem;
+      }
     }
   }
 `;
