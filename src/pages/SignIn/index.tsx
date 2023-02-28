@@ -1,47 +1,26 @@
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import { EnvelopeSimple, GoogleLogo, Lock, LockSimple } from 'phosphor-react';
-
-import { useAuth } from '../../contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 import logo from '../../assets/logo.svg';
 
+import { useAuth } from '../../contexts/AuthContext';
+
 import { InputText } from '../../components/Input';
 import { Button } from '../../components/Button';
+import { AuthForm } from '../../components/AuthForm';
 
-import { LoginContainer, LoginForm, LoginHeader } from './styles';
+import { LoginContainer, LoginHeader } from './styles';
 
-export function Login() {
-  const { signIn, signInWithGoogle } = useAuth();
+export function SignIn() {
+  const { signInWithGoogle } = useAuth();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  /* TO-DO: Add validations with React Hook Form and ZOD */
-
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    setLoading(true);
-
-    if (password.length < 6) {
-      alert('A senha deve ter no mínimo 6 caracteres');
-      setLoading(false);
-      return;
-    }
-
-    try {
-      await signIn(email, password);
-      navigate('/');
-    } catch (error) {
-      alert('Erro ao fazer login');
-
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
+  function handleLoading(value: boolean) {
+    setLoading(value);
   }
 
   async function handleSignInWithGoogle() {
@@ -51,40 +30,37 @@ export function Login() {
       await signInWithGoogle();
       navigate('/');
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      toast.error('Erro ao fazer login com o Google');
     } finally {
-      setLoading(false);
+      handleLoading(false);
     }
   }
 
   return (
-    <LoginContainer onSubmit={handleSubmit}>
+    <LoginContainer>
       <LoginHeader>
         <img src={logo} alt="" />
         <h1>Escolha o seu caminho!</h1>
       </LoginHeader>
 
-      <LoginForm>
+      <AuthForm onLoading={handleLoading} variant="sign-in">
         <InputText
           label="Endereço de e-mail"
-          name="email"
           icon={<EnvelopeSimple />}
           type="email"
           id="email"
           placeholder="Digite seu e-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="email"
         />
 
         <InputText
           label="Senha"
-          name="password"
           icon={<Lock />}
           type="password"
           id="password"
           placeholder="Digite sua senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          name="password"
         />
 
         <div className="forgot-password">
@@ -109,7 +85,7 @@ export function Login() {
           <span>Não tem uma conta?</span>
           <Link to="/sign-up">Cadastre-se</Link>
         </div>
-      </LoginForm>
+      </AuthForm>
     </LoginContainer>
   );
 }

@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
-import { ChartBar, ClockAfternoon, MonitorPlay, Plus } from 'phosphor-react';
+import { ClockAfternoon, MonitorPlay, Plus } from 'phosphor-react';
+
+import { formatDuration, formatLevel } from '../../../../utils/formatters';
 
 import { Banner } from '../../../../components/Banner';
+import { LevelIcon } from '../../../../components/LevelIcon';
 
 import {
   SlideBannerContainer,
@@ -10,7 +13,6 @@ import {
   SlideBannerFooter,
   LinkButton,
 } from './styles';
-import { formatDuration, formatLevel } from '../../../../utils/formatters';
 
 export interface SlideBannerType {
   instructor: string;
@@ -19,7 +21,7 @@ export interface SlideBannerType {
   title: string;
   duration: number;
   coursesCount: number;
-  level: string;
+  level: 'beginner' | 'intermediate' | 'advanced';
 }
 
 export interface SlideBannerProps {
@@ -61,7 +63,7 @@ export function SlideBanner({ data, onLoading }: SlideBannerProps) {
                 : `${coursesCount} Capítulos`}
             </span>
             <span>
-              <ChartBar size={20} /> {formatLevel(level)}
+              <LevelIcon level={level} /> {formatLevel(level)}
             </span>
           </div>
         </SlideBannerContent>

@@ -1,14 +1,20 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ChartBar, FileArrowDown, Medal, MonitorPlay } from 'phosphor-react';
+import {
+  FileArrowDown,
+  Medal,
+  MonitorPlay,
+  WarningOctagon,
+} from 'phosphor-react';
 
 import { api } from '../../lib/axios';
 import { LessonType } from '../../@types/Contents';
 import { formatLevel } from '../../utils/formatters';
 import { ContentsContext } from '../../contexts/ContentsContext';
 
-import { Banner } from '../../components/Banner';
 import { Accordion, ModuleType } from './components/Accordion';
+import { Banner } from '../../components/Banner';
+import { LevelIcon } from '../../components/LevelIcon';
 
 import {
   CourseContainer,
@@ -102,7 +108,7 @@ export function Course() {
               <strong>0 materiais extras</strong>
             </CourseDetailsItem>
             <CourseDetailsItem>
-              <ChartBar size={24} />
+              <LevelIcon size={24} level={course?.level} />
               <strong>{formatLevel(course?.level || '')}</strong>
             </CourseDetailsItem>
             <CourseDetailsItem>
@@ -113,33 +119,48 @@ export function Course() {
         </CourseDetails>
 
         <CourseWrapper>
-          <CourseModules>
-            <CourseModulesHeader>
-              <strong>Conteúdo do curso</strong>
-            </CourseModulesHeader>
+          {modules.length > 0 ? (
+            <>
+              <CourseModules>
+                <CourseModulesHeader>
+                  <strong>Conteúdo do curso</strong>
+                </CourseModulesHeader>
 
-            <CourseModulesContent>
-              <Accordion data={modules} />
-            </CourseModulesContent>
-          </CourseModules>
+                <CourseModulesContent>
+                  <Accordion data={modules} />
+                </CourseModulesContent>
+              </CourseModules>
 
-          <CourseDescription>
-            <CourseDescriptionHeader>
-              <strong>Sobre o curso</strong>
-            </CourseDescriptionHeader>
+              <CourseDescription>
+                <CourseDescriptionHeader>
+                  <strong>Sobre o curso</strong>
+                </CourseDescriptionHeader>
 
-            <CourseDescriptionContent>
-              <p>{course?.description}</p>
-            </CourseDescriptionContent>
+                <CourseDescriptionContent>
+                  <p>{course?.description}</p>
+                </CourseDescriptionContent>
 
-            <CourseDescriptionHeader>
-              <strong>Autor</strong>
-            </CourseDescriptionHeader>
+                <CourseDescriptionHeader>
+                  <strong>Autor</strong>
+                </CourseDescriptionHeader>
 
-            <CourseDescriptionContent>
-              <p>{course?.instructor}</p>
-            </CourseDescriptionContent>
-          </CourseDescription>
+                <CourseDescriptionContent>
+                  <p>{course?.instructor}</p>
+                </CourseDescriptionContent>
+              </CourseDescription>
+            </>
+          ) : (
+            <div className="contentEmpty">
+              <strong>
+                <WarningOctagon size={32} weight="duotone" />
+                Conteúdo em construção...{' '}
+              </strong>
+              <p>
+                Esse conteúdo ainda está sendo desenvolvido, mas não se
+                preocupe, quando estiver disponível você será notificado!
+              </p>
+            </div>
+          )}
         </CourseWrapper>
       </CourseContent>
     </CourseContainer>

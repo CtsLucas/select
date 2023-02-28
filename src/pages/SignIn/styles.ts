@@ -13,39 +13,8 @@ export const LoginContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-`;
 
-export const LoginHeader = styled.header`
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-
-  & > img {
-    width: 100%;
-    max-width: 15rem;
-  }
-
-  & > h1 {
-    color: ${({ theme }) => theme.colors.zinc[100]};
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 2.5rem;
-  }
-`;
-
-export const LoginForm = styled.form`
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
-
-  & > .forgot-password {
+  .forgot-password {
     width: 100%;
 
     display: flex;
@@ -66,7 +35,7 @@ export const LoginForm = styled.form`
     }
   }
 
-  & > .sign-up {
+  .sign-up {
     width: 100%;
     display: flex;
     align-items: center;
@@ -91,5 +60,27 @@ export const LoginForm = styled.form`
         text-decoration: underline;
       }
     }
+  }
+`;
+
+export const LoginHeader = styled.header`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+
+  & > img {
+    width: 100%;
+    max-width: 15rem;
+  }
+
+  & > h1 {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.5rem;
   }
 `;

@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
-import { ChartBar, Clock } from 'phosphor-react';
+import { Clock } from 'phosphor-react';
 
 import { formatDuration, formatLevel } from '../../../../utils/formatters';
+
+import { LevelIcon } from '../../../../components/LevelIcon';
 
 import {
   SlideCourseContainer,
@@ -16,7 +18,7 @@ export interface SlideCourseType {
   thumb: string;
   title: string;
   instructor: string;
-  level: string;
+  level: 'beginner' | 'intermediate' | 'advanced';
   duration: number;
 }
 
@@ -49,7 +51,7 @@ export function SlideCourse({ data, onLoading }: SlideCourseProps) {
 
         <SlideCourseFooter>
           <span>
-            <ChartBar size={20} />
+            <LevelIcon level={level} />
             {formatLevel(level)}
           </span>
           <span>
