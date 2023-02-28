@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { EnvelopeSimple, GoogleLogo, Lock, LockSimple } from 'phosphor-react';
+import { toast } from 'react-toastify';
 
 import logo from '../../assets/logo.svg';
 
@@ -30,6 +31,7 @@ export function SignIn() {
       navigate('/');
     } catch (error) {
       console.error(error);
+      toast.error('Erro ao fazer login com o Google');
     } finally {
       handleLoading(false);
     }

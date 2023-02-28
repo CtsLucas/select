@@ -2,6 +2,7 @@
 import { ReactNode } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as zod from 'zod';
 
@@ -62,6 +63,7 @@ export function AuthForm({ children, onLoading, variant }: AuthFormProps) {
         navigate('/');
       } catch (error) {
         console.error(error);
+        toast.error('E-mail ou senha inválidos');
       } finally {
         onLoading(false);
       }
@@ -72,6 +74,8 @@ export function AuthForm({ children, onLoading, variant }: AuthFormProps) {
 
         navigate('/');
       } catch (error) {
+        toast.error('Erro ao criar conta');
+
         console.error(error);
       } finally {
         onLoading(false);
@@ -82,7 +86,11 @@ export function AuthForm({ children, onLoading, variant }: AuthFormProps) {
         await resetPassword(data.email);
 
         navigate('/sign-in');
+        toast.success(
+          'Se você tiver uma conta, você receberá um e-mail com instruções para redefinir sua senha'
+        );
       } catch (error) {
+        toast.error('Erro ao enviar e-mail de recuperação');
         console.error(error);
       } finally {
         onLoading(false);
