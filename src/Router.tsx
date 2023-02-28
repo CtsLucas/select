@@ -4,7 +4,7 @@ import { PrivateRoute } from './components/PrivateRoute';
 import { Home } from './pages/Home';
 import { Journey } from './pages/Journey';
 import { Course } from './pages/Course';
-import { Login } from './pages/Login';
+import { SignIn } from './pages/SignIn';
 import { SignUp } from './pages/SignUp';
 import { ForgotPassword } from './pages/ForgotPassword';
 import { NotFound } from './pages/NotFound';
@@ -12,7 +12,7 @@ import { NotFound } from './pages/NotFound';
 export function Router() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/sign-in" element={<SignIn />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/" element={<PrivateRoute />}>

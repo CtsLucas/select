@@ -13,6 +13,34 @@ export const ForgotPasswordContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
+
+  .sign-in,
+  .sign-up {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    & > span {
+      color: ${({ theme }) => theme.colors.zinc[100]};
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.5rem;
+    }
+
+    & > a {
+      color: ${({ theme }) => theme.colors.indigo[300]};
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.5rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 `;
 
 export const ForgotPasswordHeader = styled.header`
@@ -34,43 +62,5 @@ export const ForgotPasswordHeader = styled.header`
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.75rem;
-  }
-`;
-
-export const ForgotPasswordForm = styled.form`
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  gap: 1.25rem;
-
-  & > .sign-in,
-  .sign-up {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-
-    & > span {
-      color: ${({ theme }) => theme.colors.zinc[100]};
-      font-size: 0.875rem;
-      font-weight: 400;
-      line-height: 1.5rem;
-    }
-
-    & > a {
-      color: ${({ theme }) => theme.colors.indigo[300]};
-      font-size: 1rem;
-      font-weight: 500;
-      line-height: 1.5rem;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 `;

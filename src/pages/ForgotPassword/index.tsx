@@ -1,54 +1,30 @@
-import { FormEvent, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { EnvelopeSimple } from 'phosphor-react';
-
-import { useAuth } from '../../contexts/AuthContext';
 
 import logo from '../../assets/logo.svg';
 
 import { InputText } from '../../components/Input';
 import { Button } from '../../components/Button';
+import { AuthForm } from '../../components/AuthForm';
 
-import {
-  ForgotPasswordContainer,
-  ForgotPasswordForm,
-  ForgotPasswordHeader,
-} from './styles';
+import { ForgotPasswordContainer, ForgotPasswordHeader } from './styles';
 
 export function ForgotPassword() {
-  const { resetPassword } = useAuth();
-  const navigate = useNavigate();
-
-  const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
-  /* TO-DO: Add validations with React Hook Form and ZOD */
-
-  async function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      await resetPassword(email);
-      navigate('/login');
-    } catch (error) {
-      alert('Erro ao enviar um e-mail de recuperação de acesso!');
-
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
+  function handleLoading(value: boolean) {
+    setLoading(value);
   }
 
   return (
-    <ForgotPasswordContainer onSubmit={handleSubmit}>
+    <ForgotPasswordContainer>
       <ForgotPasswordHeader>
         <img src={logo} alt="" />
         <h2>Recupere seu acesso!</h2>
       </ForgotPasswordHeader>
 
-      <ForgotPasswordForm>
+      <AuthForm onLoading={handleLoading} variant="forgot-password">
         <InputText
           label="Endereço de e-mail"
           name="email"
@@ -56,8 +32,6 @@ export function ForgotPassword() {
           type="email"
           id="email"
           placeholder="Digite seu e-mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
         />
 
         <Button type="submit" disabled={loading}>
@@ -66,13 +40,13 @@ export function ForgotPassword() {
 
         <div className="sign-in">
           <span>Lembrou-se do acesso?</span>
-          <Link to="/login">Entrar</Link>
+          <Link to="/sign-in">Entrar</Link>
         </div>
         <div className="sign-up">
           <span>Não possuí cadastro?</span>
           <Link to="/sign-up">Cadastra-se</Link>
         </div>
-      </ForgotPasswordForm>
+      </AuthForm>
     </ForgotPasswordContainer>
   );
 }

@@ -7,5 +7,5 @@ import { DefaultLayout } from '../../layouts/DefaultLayout';
 export const PrivateRoute = () => {
   const { currentUser } = useContext(AuthContext);
 
-  return currentUser ? <DefaultLayout /> : <Navigate to="/login" />;
+  return currentUser ? <DefaultLayout /> : <Navigate to="/sign-in" />;
 };

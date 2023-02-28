@@ -2,6 +2,16 @@ export const defaultTheme = {
   colors: {
     white: '#ffffff',
     black: '#000000',
+    danger: {
+      300: '#fca5a5',
+      500: '#ef4444',
+      700: '#b91c1c',
+    },
+    success: {
+      300: '#bef264',
+      500: '#22c55e',
+      700: '#4d7c0f',
+    },
     zinc: {
       100: '#f4f4f5',
       200: '#e4e4e7',
