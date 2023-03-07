@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EnvelopeSimple, Lock } from 'phosphor-react';
 
 import logo from '../../assets/logo.svg';
+import { useSignUp } from './useSignUp';
 
 import { InputText } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -11,11 +11,7 @@ import { AuthForm } from '../../components/AuthForm';
 import { SignUpContainer, SignUpHeader } from './styles';
 
 export function SignUp() {
-  const [loading, setLoading] = useState(false);
-
-  function handleLoading(value: boolean) {
-    setLoading(value);
-  }
+  const { loading, handleLoading } = useSignUp();
 
   return (
     <SignUpContainer>

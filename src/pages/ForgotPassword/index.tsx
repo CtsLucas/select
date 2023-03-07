@@ -1,8 +1,9 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { EnvelopeSimple } from 'phosphor-react';
 
 import logo from '../../assets/logo.svg';
+
+import { useForgotPassword } from './useForgotPassword';
 
 import { InputText } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -11,11 +12,7 @@ import { AuthForm } from '../../components/AuthForm';
 import { ForgotPasswordContainer, ForgotPasswordHeader } from './styles';
 
 export function ForgotPassword() {
-  const [loading, setLoading] = useState(false);
-
-  function handleLoading(value: boolean) {
-    setLoading(value);
-  }
+  const { loading, handleLoading } = useForgotPassword();
 
   return (
     <ForgotPasswordContainer>
