@@ -8,7 +8,7 @@ import * as zod from 'zod';
 
 import { useAuth } from '../../contexts/AuthContext';
 
-import { AuthFormContainer } from './style';
+import { AuthFormContainer } from './styles';
 
 export const AuthFormSchemaValidation = zod
   .object({
@@ -41,7 +41,7 @@ interface AuthFormProps {
 }
 
 export function AuthForm({ children, onLoading, variant }: AuthFormProps) {
-  const authForm = useForm({
+  const authForm = useForm<AuthFormSchema>({
     resolver: zodResolver(AuthFormSchemaValidation),
   });
 
@@ -50,9 +50,7 @@ export function AuthForm({ children, onLoading, variant }: AuthFormProps) {
 
   const { handleSubmit } = authForm;
 
-  async function onSubmit(
-    data: any /* AuthFormSchema - TODO: handle type error*/
-  ) {
+  async function onSubmit(data: AuthFormSchema) {
     onLoading(true);
 
     switch (variant) {
