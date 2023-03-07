@@ -1,11 +1,8 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { EnvelopeSimple, GoogleLogo, Lock, LockSimple } from 'phosphor-react';
-import { toast } from 'react-toastify';
 
 import logo from '../../assets/logo.svg';
-
-import { useAuth } from '../../contexts/AuthContext';
+import { useSignIn } from './useSignIn';
 
 import { InputText } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -14,28 +11,7 @@ import { AuthForm } from '../../components/AuthForm';
 import { LoginContainer, LoginHeader } from './styles';
 
 export function SignIn() {
-  const { signInWithGoogle } = useAuth();
-  const navigate = useNavigate();
-
-  const [loading, setLoading] = useState(false);
-
-  function handleLoading(value: boolean) {
-    setLoading(value);
-  }
-
-  async function handleSignInWithGoogle() {
-    setLoading(true);
-
-    try {
-      await signInWithGoogle();
-      navigate('/');
-    } catch (error) {
-      console.error(error);
-      toast.error('Erro ao fazer login com o Google');
-    } finally {
-      handleLoading(false);
-    }
-  }
+  const { handleLoading, handleSignInWithGoogle, loading } = useSignIn();
 
   return (
     <LoginContainer>

@@ -1,80 +1,11 @@
-import { useEffect, useState } from 'react';
-
-import { getRandomItens } from '../../utils/getRandomItens';
-import { useContent } from '../../contexts/ContentsContext';
-
 import { Carousel } from './components/Carousel';
-import { SlideBannerType } from './components/SlideBanner';
-import { SlideCourseType } from './components/SlideCourse';
-import { SlideJourneyType } from './components/SlideJourney';
+
+import { useHome } from './useHome';
 
 import { HomeContainer, HomeContent } from './styles';
 
 export function Home() {
-  const { contents, handleLoading } = useContent();
-
-  const [banners, setBanners] = useState<SlideBannerType[]>([]);
-  const [journeys, setJourneys] = useState<SlideJourneyType[]>([]);
-  const [courses, setCourses] = useState<SlideCourseType[]>([]);
-
-  useEffect(() => {
-    handleLoading(true);
-    const coursesIdSelected = [
-      '3b5792a0-d9e4-487c-ba13-275026be5efa',
-      '2ba9f95a-e17a-4ede-b754-0f73d36c3b42',
-      '17d05a10-8193-44db-b091-51ead3e6d3d5',
-      '74924a45-f351-456c-8667-80cdfd29249d',
-    ];
-    const banners =
-      contents.courses
-        ?.filter((courses) => coursesIdSelected.includes(courses.id))
-        .map((courses) => {
-          return {
-            instructor: courses.instructor,
-            thumb: courses.medias.thumb,
-            title: courses.title,
-            id: courses.id,
-            duration: courses.duration,
-            coursesCount: courses.modules.length,
-            level: courses.level,
-          };
-        }) || [];
-
-    const journeys =
-      contents.journeys?.map((journey) => {
-        return {
-          id: journey.pathID,
-          title: journey.title,
-          thumb: journey.medias.thumb,
-          description: journey.description,
-          countCourses: journey.countCourses,
-          duration: journey.duration,
-        };
-      }) || [];
-
-    const courses = contents.courses
-      ? getRandomItens(
-        contents.courses.filter(
-          (course) => course.duration > 0 && course.medias.thumb
-        ),
-        20
-      ).map((course) => {
-        return {
-          id: course.id,
-          title: course.title,
-          thumb: course.medias.thumb,
-          instructor: course.instructor,
-          duration: course.duration,
-          level: course.level,
-        };
-      })
-      : [];
-
-    setJourneys(journeys);
-    setBanners(banners);
-    setCourses(courses);
-    handleLoading(false);
-  }, [contents]);
+  const { banners, courses, journeys } = useHome();
 
   return (
     <HomeContainer>
