@@ -1,10 +1,10 @@
-import { Carousel } from './components/Carousel';
+import { Carousel } from '@pages/Home/components';
 
 import { useHome } from './useHome';
 
 import { HomeContainer, HomeContent } from './styles';
 
-export function Home() {
+export default function Home() {
   const { banners, courses, journeys } = useHome();
 
   return (

@@ -1,9 +1,10 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { LessonType } from '../../@types/Contents';
-import { ContentsContext } from '../../contexts/ContentsContext';
-import { api } from '../../lib/axios';
-import { ModuleType } from './components/Modules';
+
+import { LessonType } from '@/types/Contents';
+import { ContentsContext } from '@contexts/ContentsContext';
+import { api } from '@/lib/axios';
+import { ModuleType } from '@pages/Course/components/CourseModules';
 
 interface ResponseProps {
   modules: ModuleType[];

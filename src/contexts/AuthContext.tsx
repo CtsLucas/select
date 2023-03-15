@@ -17,8 +17,8 @@ import {
   UserCredential,
 } from 'firebase/auth';
 
-import { auth } from '../lib/firebase';
-import { Loader } from '../components/Loader';
+import { auth } from '@/lib/firebase';
+import { Loader } from '@components';
 
 interface AuthContextType {
   currentUser: User | null;

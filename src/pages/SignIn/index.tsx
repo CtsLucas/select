@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom';
 import { EnvelopeSimple, GoogleLogo, Lock, LockSimple } from 'phosphor-react';
 
-import logo from '../../assets/logo.svg';
-import { useSignIn } from './useSignIn';
+import logo from '@assets/logo.svg';
+import { InputText, Button, AuthForm } from '@components';
 
-import { InputText } from '../../components/Input';
-import { Button } from '../../components/Button';
-import { AuthForm } from '../../components/AuthForm';
+import { useSignIn } from './useSignIn';
 
 import { LoginContainer, LoginHeader } from './styles';
 
-export function SignIn() {
+export default function SignIn() {
   const { handleLoading, handleSignInWithGoogle, loading } = useSignIn();
 
   return (

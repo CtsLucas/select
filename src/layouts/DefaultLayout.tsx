@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
-import { Loader } from '../components/Loader';
-import { useContent } from '../contexts/ContentsContext';
+
+import { useContent } from '@contexts/ContentsContext';
+import { Footer, Header, Loader } from '@components';
+
 import { DefaultLayoutContainer } from './styles';
 
 export function DefaultLayout() {

@@ -15,7 +15,7 @@ interface BannerProps {
   description?: string;
 }
 
-export function Banner({
+export default function Banner({
   backgroundImage,
   children,
   title,

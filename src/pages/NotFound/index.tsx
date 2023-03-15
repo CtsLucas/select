@@ -1,9 +1,11 @@
 import { ArrowLeft } from 'phosphor-react';
 import { Link } from 'react-router-dom';
-import notFoundImage from '../../assets/not-found.svg';
+
+import notFoundImage from '@assets/not-found.svg';
+
 import { NotFoundContainer } from './styles';
 
-export function NotFound() {
+export default function NotFound() {
   return (
     <NotFoundContainer>
       <img src={notFoundImage} alt="" />

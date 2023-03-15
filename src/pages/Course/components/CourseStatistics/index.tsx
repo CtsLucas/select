@@ -1,15 +1,17 @@
 import { FileArrowDown, Medal, MonitorPlay } from 'phosphor-react';
 
-import { CourseType } from '../../../../@types/Contents';
-import { LevelIcon } from '../../../../components/LevelIcon';
-import { formatLevel } from '../../../../utils/formatters';
+import { CourseType } from '@/types/Contents';
+
+import { LevelIcon } from '@components';
+import { formatLevel } from '@utils/formatters';
+
 import { CourseStatisticsContainer, StatisticsItem } from './styles';
 
 interface CourseStatisticsProps {
   course?: CourseType;
 }
 
-export function CourseStatistics({ course }: CourseStatisticsProps) {
+export default function CourseStatistics({ course }: CourseStatisticsProps) {
   return (
     <CourseStatisticsContainer>
       <div className="course-statistics__header">

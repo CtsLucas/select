@@ -4,9 +4,11 @@ import { useKeenSlider } from 'keen-slider/react';
 import { KeenSliderHooks, KeenSliderInstance } from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
 
-import { SlideBanner, SlideBannerType } from '../SlideBanner';
-import { SlideCourse, SlideCourseType } from '../SlideCourse';
-import { SlideJourney, SlideJourneyType } from '../SlideJourney';
+import { SlideBannerType } from '../SlideBanner';
+import { SlideCourseType } from '../SlideCourse';
+import { SlideJourneyType } from '../SlideJourney';
+
+import { SlideBanner, SlideCourse, SlideJourney } from '@pages/Home/components';
 
 import { CarouselContainer, CarouselContent } from './styles';
 
@@ -16,7 +18,7 @@ interface CarouselProps {
   title?: string;
 }
 
-export function Carousel({ slides, variant, title }: CarouselProps) {
+export default function Carousel({ slides, variant, title }: CarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [options, setOptions] = useState({});

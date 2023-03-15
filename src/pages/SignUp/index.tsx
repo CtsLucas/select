@@ -1,16 +1,14 @@
 import { Link } from 'react-router-dom';
 import { EnvelopeSimple, Lock } from 'phosphor-react';
 
-import logo from '../../assets/logo.svg';
-import { useSignUp } from './useSignUp';
+import logo from '@assets/logo.svg';
+import { InputText, Button, AuthForm } from '@components';
 
-import { InputText } from '../../components/Input';
-import { Button } from '../../components/Button';
-import { AuthForm } from '../../components/AuthForm';
+import { useSignUp } from './useSignUp';
 
 import { SignUpContainer, SignUpHeader } from './styles';
 
-export function SignUp() {
+export default function SignUp() {
   const { loading, handleLoading } = useSignUp();
 
   return (

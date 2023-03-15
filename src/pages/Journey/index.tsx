@@ -1,12 +1,11 @@
-import { useJourney } from './useJourney';
+import { Banner } from '@components';
+import { CarouselCourse, JourneyStatistics } from '@pages/Journey/components';
 
-import { Banner } from '../../components/Banner';
-import { CarouselCourse } from './components/CarouselCourse';
-import { JourneyStatistics } from './components/JourneyStatistics';
+import { useJourney } from './useJourney';
 
 import { JourneyContainer, JourneyContent } from './styles';
 
-export function Journey() {
+export default function Journey() {
   const { journey, courses } = useJourney();
 
   return (

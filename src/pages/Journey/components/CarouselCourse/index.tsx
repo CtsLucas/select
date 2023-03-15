@@ -6,9 +6,8 @@ import {
 } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
-import { CourseType } from '../../../../@types/Contents';
-
-import { CardCourse } from '../CardCourse';
+import { CourseType } from '@/types/Contents';
+import { CardCourse } from '@pages/Journey/components';
 
 import { CarouselCourseContainer } from './styles';
 
@@ -16,7 +15,7 @@ interface CarouselCourseProps {
   slides: CourseType[];
 }
 
-export function CarouselCourse({ slides }: CarouselCourseProps) {
+export default function CarouselCourse({ slides }: CarouselCourseProps) {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     drag: false,
     initial: 0,

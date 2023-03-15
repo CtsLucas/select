@@ -1,9 +1,11 @@
-import { useCourse } from './useCourse';
+import { Banner } from '@components';
+import {
+  CourseModules,
+  CourseStatistics,
+  EmptyContent,
+} from '@pages/Course/components/';
 
-import { Banner } from '../../components/Banner';
-import { CourseStatistics } from './components/CourseStatistics';
-import { Modules } from './components/Modules';
-import { EmptyContent } from './components/EmptyContent';
+import { useCourse } from './useCourse';
 
 import {
   CourseContainer,
@@ -12,7 +14,7 @@ import {
   CourseWrapper,
 } from './styles';
 
-export function Course() {
+export default function Course() {
   const { course, modules } = useCourse();
 
   return (
@@ -29,7 +31,7 @@ export function Course() {
         <CourseWrapper>
           {modules.length > 0 ? (
             <>
-              <Modules modules={modules} />
+              <CourseModules modules={modules} />
 
               <CourseDescription>
                 <div className="course-description__content">

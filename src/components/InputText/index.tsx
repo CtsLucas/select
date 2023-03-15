@@ -9,7 +9,12 @@ export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode;
 }
 
-export function InputText({ name, label, icon, ...props }: InputTextProps) {
+export default function InputText({
+  name,
+  label,
+  icon,
+  ...props
+}: InputTextProps) {
   const { register, formState, clearErrors } = useFormContext();
 
   const error = formState.errors[name]?.message as string;

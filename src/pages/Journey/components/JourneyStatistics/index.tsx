@@ -1,8 +1,8 @@
 import { ClockAfternoon, MonitorPlay } from 'phosphor-react';
 
-import { JourneyType } from '../../../../@types/Contents';
-import { formatDuration } from '../../../../utils/formatters';
-import { Separator } from '../../../../components/Separator';
+import { JourneyType } from '@/types/Contents';
+import { formatDuration } from '@utils/formatters';
+import { Separator } from '@components';
 
 import { JourneyStatisticsContainer, StatisticsItem } from './styles';
 
@@ -10,7 +10,7 @@ interface JourneyStatisticsProps {
   journey?: JourneyType;
 }
 
-export function JourneyStatistics({ journey }: JourneyStatisticsProps) {
+export default function JourneyStatistics({ journey }: JourneyStatisticsProps) {
   return (
     <JourneyStatisticsContainer>
       <StatisticsItem>

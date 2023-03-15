@@ -2,7 +2,7 @@ import { WarningOctagon } from 'phosphor-react';
 
 import { EmptyContentContainer } from './styles';
 
-export function EmptyContent() {
+export default function EmptyContent() {
   return (
     <EmptyContentContainer>
       <strong>

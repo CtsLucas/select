@@ -1,5 +1,5 @@
-import { LessonType } from '../../../../@types/Contents';
-import { Accordion } from '../Accordion';
+import { LessonType } from '@/types/Contents';
+import { Accordion } from '@pages/Course/components';
 
 import { ModulesContainer } from './styles';
 
@@ -13,7 +13,7 @@ export interface ModuleType {
   title: string;
 }
 
-export function Modules({ modules }: ModulesProps) {
+export default function CourseModules({ modules }: ModulesProps) {
   return (
     <ModulesContainer>
       <div className="modules__header">

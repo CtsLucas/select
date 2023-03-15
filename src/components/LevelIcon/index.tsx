@@ -3,7 +3,10 @@ interface LevelIconProps {
   level?: 'beginner' | 'intermediate' | 'advanced';
 }
 
-export function LevelIcon({ size = 20, level = 'beginner' }: LevelIconProps) {
+export default function LevelIcon({
+  size = 20,
+  level = 'beginner',
+}: LevelIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

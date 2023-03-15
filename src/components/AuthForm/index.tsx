@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as zod from 'zod';
 
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '@contexts/AuthContext';
 
 import { AuthFormContainer } from './styles';
 
@@ -40,7 +40,11 @@ interface AuthFormProps {
   onLoading: (value: boolean) => void;
 }
 
-export function AuthForm({ children, onLoading, variant }: AuthFormProps) {
+export default function AuthForm({
+  children,
+  onLoading,
+  variant,
+}: AuthFormProps) {
   const authForm = useForm<AuthFormSchema>({
     resolver: zodResolver(AuthFormSchemaValidation),
   });

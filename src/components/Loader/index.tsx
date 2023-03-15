@@ -1,9 +1,8 @@
-import { ReactPortal } from '../ReactPortal';
-import { Spinner } from '../Spinner';
+import { ReactPortal, Spinner } from '@components';
 
 import { Overlay } from './styles';
 
-export function Loader() {
+export default function Loader() {
   return (
     <ReactPortal containerId="loader-root">
       <Overlay>
