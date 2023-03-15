@@ -23,59 +23,6 @@ export const CourseContent = styled.div`
   }
 `;
 
-export const CourseDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.75rem;
-`;
-
-export const CourseDetailsHeader = styled.div`
-  & > strong {
-    color: ${({ theme }) => theme.colors.zinc[100]};
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.25rem;
-
-    @media (min-width: 800px) {
-      font-size: 1.25rem;
-      line-height: 1.5rem;
-    }
-  }
-`;
-
-export const CourseDetailsContent = styled.div`
-  background: ${({ theme }) => theme.colors.indigo[900]};
-  width: 100%;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 1rem;
-
-  @media (max-width: 820px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-`;
-
-export const CourseDetailsItem = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-
-  & > strong {
-    color: ${({ theme }) => theme.colors.zinc[100]};
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-`;
-
 export const CourseWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -85,73 +32,6 @@ export const CourseWrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-
-  & > .contentEmpty {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-
-    strong {
-      color: ${({ theme }) => theme.colors.zinc[100]};
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 2.5rem;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-
-      @media (max-width: 768px) {
-        font-size: 1.5rem;
-        line-height: 2rem;
-      }
-    }
-
-    p {
-      color: ${({ theme }) => theme.colors.zinc[200]};
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.25rem;
-    }
-  }
-`;
-
-export const CourseModules = styled.div`
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.75rem;
-
-  flex: 1;
-`;
-
-export const CourseModulesHeader = styled.div`
-  & > strong {
-    color: ${({ theme }) => theme.colors.zinc[100]};
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.25rem;
-
-    @media (min-width: 800px) {
-      font-size: 1.25rem;
-      line-height: 1.5rem;
-    }
-  }
-`;
-
-export const CourseModulesContent = styled.div`
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
 `;
 
 export const CourseDescription = styled.div`
@@ -162,20 +42,36 @@ export const CourseDescription = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 0.75rem;
-`;
 
-export const CourseDescriptionHeader = styled.div`
-  & > strong {
-    color: ${({ theme }) => theme.colors.zinc[100]};
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1.25rem;
+  & > .course-description__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
 
-    @media (min-width: 768px) {
-      font-size: 1.25rem;
-      line-height: 1.5rem;
+    & > strong {
+      color: ${({ theme }) => theme.colors.zinc[100]};
+      font-weight: 700;
+      font-size: 1rem;
+      line-height: 1.25rem;
+
+      @media (min-width: 768px) {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+      }
+    }
+
+    & > p {
+      color: ${({ theme }) => theme.colors.zinc[100]};
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 1.125rem;
+
+      @media (min-width: 768px) {
+        font-size: 1rem;
+        line-height: 1.25rem;
+      }
     }
   }
 `;
-
-export const CourseDescriptionContent = styled.div``;

@@ -15,7 +15,8 @@ export const CarouselCourseContainer = styled.div`
   }
 
   & > .keen-slider.thumbnail > .keen-slider__slide {
-    flex: 1;
+    max-width: 240px;
+    min-width: 240px;
 
     background: ${({ theme }) => theme.colors.indigo[900]};
     border: 2px solid transparent;
@@ -34,11 +35,6 @@ export const CarouselCourseContainer = styled.div`
       border: 2px solid ${({ theme }) => theme.colors.indigo[600]};
     }
 
-    @media (max-width: 768px) {
-      max-width: 240px;
-      min-width: 240px;
-    }
-
     &.active {
       background: ${({ theme }) => theme.colors.indigo[600]};
       border: 2px solid ${({ theme }) => theme.colors.indigo[400]};
@@ -53,6 +49,13 @@ export const CarouselCourseContainer = styled.div`
       font-size: 1rem;
       font-weight: 700;
       line-height: 1.25rem;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     & > span {

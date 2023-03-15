@@ -8,9 +8,9 @@ import {
 } from 'react';
 import axios from 'axios';
 
-import { CourseType, JourneyType } from '../@types/Contents';
+import { CourseType, JourneyType } from '@/types/Contents';
 
-import { api } from '../lib/axios';
+import { api } from '@/lib/axios';
 
 interface ContentsContextType {
   contents: Contents;
@@ -85,8 +85,8 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
         journeys,
         courses,
       }));
-    } catch (err) {
-      console.log('error: ', err);
+    } catch (error) {
+      console.log('error: ', error);
     } finally {
       handleLoading(false);
     }

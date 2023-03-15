@@ -6,9 +6,8 @@ import {
 } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
-import { CourseType } from '../../../../@types/Contents';
-
-import { CardCourse } from '../CardCourse';
+import { CourseType } from '@/types/Contents';
+import { CardCourse } from '@pages/Journey/components';
 
 import { CarouselCourseContainer } from './styles';
 
@@ -16,7 +15,7 @@ interface CarouselCourseProps {
   slides: CourseType[];
 }
 
-export function CarouselCourse({ slides }: CarouselCourseProps) {
+export default function CarouselCourse({ slides }: CarouselCourseProps) {
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     drag: false,
     initial: 0,
@@ -29,22 +28,22 @@ export function CarouselCourse({ slides }: CarouselCourseProps) {
   const [thumbnailRef, thumbnailInstanceRef] = useKeenSlider<HTMLDivElement>(
     {
       initial: 0,
+      mode: 'snap',
       slides: {
-        perView: 3,
-        spacing: 10,
+        perView: 4,
+        spacing: 8,
       },
       breakpoints: {
         '(max-width: 1100px)': {
           slides: {
-            perView: 2,
-            spacing: 10,
+            perView: 3,
+            spacing: 8,
           },
         },
         '(max-width: 768px)': {
-          mode: 'snap',
           slides: {
             perView: 'auto',
-            spacing: 10,
+            spacing: 8,
           },
         },
       },

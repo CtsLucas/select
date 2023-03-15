@@ -4,6 +4,6 @@ interface SpinnerProps {
   size?: number;
 }
 
-export function Spinner({ size = 32 }: SpinnerProps) {
+export default function Spinner({ size = 32 }: SpinnerProps) {
   return <SpinnerContainer size={size} />;
 }

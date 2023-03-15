@@ -1,8 +1,8 @@
-import logoSVG from '../../assets/logo.svg';
+import logoSVG from '@assets/logo.svg';
 
 import { FooterContainer, FooterContent } from './styles';
 
-export function Footer() {
+export default function Footer() {
   return (
     <FooterContainer>
       <FooterContent>

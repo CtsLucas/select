@@ -6,7 +6,7 @@ interface ReactPortalProps {
   children: ReactNode;
 }
 
-export function ReactPortal({
+export default function ReactPortal({
   containerId = 'portal-root',
   children,
 }: ReactPortalProps) {

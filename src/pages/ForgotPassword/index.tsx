@@ -1,17 +1,13 @@
 import { Link } from 'react-router-dom';
 import { EnvelopeSimple } from 'phosphor-react';
 
-import logo from '../../assets/logo.svg';
+import { InputText, Button, AuthForm } from '@components';
+import logo from '@assets/logo.svg';
 
 import { useForgotPassword } from './useForgotPassword';
-
-import { InputText } from '../../components/Input';
-import { Button } from '../../components/Button';
-import { AuthForm } from '../../components/AuthForm';
-
 import { ForgotPasswordContainer, ForgotPasswordHeader } from './styles';
 
-export function ForgotPassword() {
+export default function ForgotPassword() {
   const { loading, handleLoading } = useForgotPassword();
 
   return (

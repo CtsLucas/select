@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
 import { Clock } from 'phosphor-react';
 
-import { formatDuration, formatLevel } from '../../../../utils/formatters';
-
-import { LevelIcon } from '../../../../components/LevelIcon';
+import { formatDuration, formatLevel } from '@utils/formatters';
+import { LevelIcon } from '@components';
 
 import {
   SlideCourseContainer,
@@ -27,7 +26,7 @@ export interface SlideCourseProps {
   onLoading: () => void;
 }
 
-export function SlideCourse({ data, onLoading }: SlideCourseProps) {
+export default function SlideCourse({ data, onLoading }: SlideCourseProps) {
   const { id, thumb, title, instructor, level, duration } = data;
 
   function handleLoading() {

@@ -1,4 +1,4 @@
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '@contexts/AuthContext';
 
 import {
   DropdownMenuContent,
@@ -10,7 +10,7 @@ import {
   IconAvatar,
 } from './styles';
 
-export function DropDownMenu() {
+export default function DropDownMenu() {
   const { logOut, currentUser } = useAuth();
 
   const avatarName = currentUser?.displayName

@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
+
+import { DropDownMenu } from '@components';
+import logoSVG from '@/assets/logo.svg';
+
 import { HeaderContainer, HeaderContent } from './styles';
 
-import logoSVG from '../../assets/logo.svg';
-import { Link } from 'react-router-dom';
-import { DropDownMenu } from '../DropDownMenu';
-
-export function Header() {
+export default function Header() {
   return (
     <HeaderContainer>
       <HeaderContent>

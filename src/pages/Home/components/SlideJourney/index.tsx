@@ -1,6 +1,6 @@
 import { ClockAfternoon } from 'phosphor-react';
 
-import { formatDuration } from '../../../../utils/formatters';
+import { formatDuration } from '@utils/formatters';
 
 import {
   SlideJourneyContainer,
@@ -23,7 +23,7 @@ export interface SlideJourneyProps {
   onLoading: () => void;
 }
 
-export function SlideJourney({ data, onLoading }: SlideJourneyProps) {
+export default function SlideJourney({ data, onLoading }: SlideJourneyProps) {
   const {
     id,
     thumb,

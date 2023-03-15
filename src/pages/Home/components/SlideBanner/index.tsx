@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
 import { ClockAfternoon, MonitorPlay, Plus } from 'phosphor-react';
 
-import { formatDuration, formatLevel } from '../../../../utils/formatters';
-
-import { Banner } from '../../../../components/Banner';
-import { LevelIcon } from '../../../../components/LevelIcon';
+import { formatDuration, formatLevel } from '@utils/formatters';
+import { Banner, LevelIcon } from '@components';
 
 import {
   SlideBannerContainer,
@@ -29,7 +27,7 @@ export interface SlideBannerProps {
   onLoading: () => void;
 }
 
-export function SlideBanner({ data, onLoading }: SlideBannerProps) {
+export default function SlideBanner({ data, onLoading }: SlideBannerProps) {
   const { id, thumb, instructor, title, duration, coursesCount, level } = data;
 
   function handleLoading() {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { useContent } from '../../contexts/ContentsContext';
-import { getRandomItens } from '../../utils/getRandomItens';
+import { useContent } from '@contexts/ContentsContext';
+import { getRandomItens } from '@utils/getRandomItens';
 
 import { SlideBannerType } from './components/SlideBanner';
 import { SlideCourseType } from './components/SlideCourse';
@@ -19,7 +19,7 @@ export function useHome() {
 
     const coursesIdSelected = [
       '3b5792a0-d9e4-487c-ba13-275026be5efa',
-      '2ba9f95a-e17a-4ede-b754-0f73d36c3b42',
+      '7cfc5e1c-49c4-4812-8c7a-6826141d3ee0',
       '17d05a10-8193-44db-b091-51ead3e6d3d5',
       '74924a45-f351-456c-8667-80cdfd29249d',
     ];

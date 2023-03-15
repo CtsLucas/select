@@ -2,9 +2,9 @@ import { Clock } from 'phosphor-react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { CourseType } from '../../../../@types/Contents';
-import { LevelIcon } from '../../../../components/LevelIcon';
-import { formatDuration, formatLevel } from '../../../../utils/formatters';
+import { LevelIcon } from '@components';
+import { CourseType } from '@/types/Contents';
+import { formatDuration, formatLevel } from '@utils/formatters';
 
 import {
   CardCourseContainer,
@@ -19,7 +19,7 @@ interface CardCourseProps {
   onLoading: () => void;
 }
 
-export function CardCourse({ data, onLoading }: CardCourseProps) {
+export default function CardCourse({ data, onLoading }: CardCourseProps) {
   const navigate = useNavigate();
   const {
     id,

@@ -1,13 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { PrivateRoute } from './components/PrivateRoute';
-import { Home } from './pages/Home';
-import { Journey } from './pages/Journey';
-import { Course } from './pages/Course';
-import { SignIn } from './pages/SignIn';
-import { SignUp } from './pages/SignUp';
-import { ForgotPassword } from './pages/ForgotPassword';
-import { NotFound } from './pages/NotFound';
+import { PrivateRoute } from '@components';
+import {
+  Course,
+  ForgotPassword,
+  Home,
+  Journey,
+  NotFound,
+  SignIn,
+  SignUp,
+} from '@pages';
 
 export function Router() {
   return (

@@ -39,7 +39,7 @@ export const CardCourseImage = styled.div<CardCourseImageProps>`
   }
 
   @media screen and (min-width: 768px) {
-    height: 24rem;
+    height: 24.25rem;
     flex: 2;
 
     border-radius: 0;
