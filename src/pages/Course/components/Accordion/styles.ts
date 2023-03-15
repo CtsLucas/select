@@ -8,8 +8,6 @@ export const AccordionRoot = styled(Accordion.Root)`
   gap: 1rem;
 `;
 
-export const AccordionItem = styled(Accordion.Item)``;
-
 export const AccordionHeader = styled(Accordion.Header)``;
 
 export const AccordionTrigger = styled(Accordion.Trigger)`
@@ -17,16 +15,11 @@ export const AccordionTrigger = styled(Accordion.Trigger)`
   width: 100%;
   padding: 1rem 1.5rem;
   border-radius: 8px;
-  transition: all 0.2s ease-in-out;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.indigo[600]};
-  }
 
   & > svg {
     color: ${({ theme }) => theme.colors.zinc[100]};
@@ -77,6 +70,13 @@ export const AccordionContent = styled(Accordion.Content)`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   margin-top: -10px;
+`;
+
+export const AccordionItem = styled(Accordion.Item)`
+  &:hover ${AccordionTrigger}, &:hover ${AccordionContent} {
+    transition: all 0.2s ease-in-out;
+    background: ${({ theme }) => theme.colors.indigo[700]};
+  }
 `;
 
 export const Lesson = styled.div`

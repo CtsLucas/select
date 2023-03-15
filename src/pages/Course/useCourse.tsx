@@ -3,16 +3,10 @@ import { useParams } from 'react-router-dom';
 import { LessonType } from '../../@types/Contents';
 import { ContentsContext } from '../../contexts/ContentsContext';
 import { api } from '../../lib/axios';
-import { ModuleType } from './components/Accordion';
+import { ModuleType } from './components/Modules';
 
 interface ResponseProps {
-  modules: ModuleProps[];
-}
-
-interface ModuleProps {
-  duration: number;
-  lessons: LessonType[];
-  title: string;
+  modules: ModuleType[];
 }
 
 export function useCourse() {

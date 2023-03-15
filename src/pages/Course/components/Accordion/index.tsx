@@ -1,7 +1,7 @@
 import { CaretDown, PlayCircle } from 'phosphor-react';
 
-import { LessonType } from '../../../../@types/Contents';
 import { formatDuration } from '../../../../utils/formatters';
+import { ModuleType } from '../Modules';
 
 import {
   AccordionContent,
@@ -14,12 +14,6 @@ import {
 
 interface AccordionProps {
   data: ModuleType[];
-}
-
-export interface ModuleType {
-  title: string;
-  duration: number;
-  lessons: LessonType[];
 }
 
 export function Accordion({ data }: AccordionProps) {

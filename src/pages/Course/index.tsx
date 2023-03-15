@@ -1,30 +1,14 @@
-import {
-  FileArrowDown,
-  Medal,
-  MonitorPlay,
-  WarningOctagon,
-} from 'phosphor-react';
-
 import { useCourse } from './useCourse';
-import { formatLevel } from '../../utils/formatters';
 
-import { Accordion } from './components/Accordion';
 import { Banner } from '../../components/Banner';
-import { LevelIcon } from '../../components/LevelIcon';
+import { CourseStatistics } from './components/CourseStatistics';
+import { Modules } from './components/Modules';
+import { EmptyContent } from './components/EmptyContent';
 
 import {
   CourseContainer,
   CourseContent,
   CourseDescription,
-  CourseDescriptionContent,
-  CourseDescriptionHeader,
-  CourseDetails,
-  CourseDetailsContent,
-  CourseDetailsHeader,
-  CourseDetailsItem,
-  CourseModules,
-  CourseModulesContent,
-  CourseModulesHeader,
   CourseWrapper,
 } from './styles';
 
@@ -40,72 +24,27 @@ export function Course() {
       />
 
       <CourseContent>
-        <CourseDetails>
-          <CourseDetailsHeader>
-            <strong>Detalhes do curso</strong>
-          </CourseDetailsHeader>
-          <CourseDetailsContent>
-            <CourseDetailsItem>
-              <MonitorPlay size={24} />
-              <strong>{course?.modules.length} Capítulos</strong>
-            </CourseDetailsItem>
-            <CourseDetailsItem>
-              <FileArrowDown size={24} />
-              <strong>0 materiais extras</strong>
-            </CourseDetailsItem>
-            <CourseDetailsItem>
-              <LevelIcon size={24} level={course?.level} />
-              <strong>{formatLevel(course?.level || '')}</strong>
-            </CourseDetailsItem>
-            <CourseDetailsItem>
-              <Medal size={24} />
-              <strong>Certificado ao concluir o curso</strong>
-            </CourseDetailsItem>
-          </CourseDetailsContent>
-        </CourseDetails>
+        <CourseStatistics course={course} />
 
         <CourseWrapper>
           {modules.length > 0 ? (
             <>
-              <CourseModules>
-                <CourseModulesHeader>
-                  <strong>Conteúdo do curso</strong>
-                </CourseModulesHeader>
-
-                <CourseModulesContent>
-                  <Accordion data={modules} />
-                </CourseModulesContent>
-              </CourseModules>
+              <Modules modules={modules} />
 
               <CourseDescription>
-                <CourseDescriptionHeader>
+                <div className="course-description__content">
                   <strong>Sobre o curso</strong>
-                </CourseDescriptionHeader>
-
-                <CourseDescriptionContent>
                   <p>{course?.description}</p>
-                </CourseDescriptionContent>
+                </div>
 
-                <CourseDescriptionHeader>
+                <div className="course-description__content">
                   <strong>Autor</strong>
-                </CourseDescriptionHeader>
-
-                <CourseDescriptionContent>
                   <p>{course?.instructor}</p>
-                </CourseDescriptionContent>
+                </div>
               </CourseDescription>
             </>
           ) : (
-            <div className="contentEmpty">
-              <strong>
-                <WarningOctagon size={32} weight="duotone" />
-                Conteúdo em construção...{' '}
-              </strong>
-              <p>
-                Esse conteúdo ainda está sendo desenvolvido, mas não se
-                preocupe, quando estiver disponível você será notificado!
-              </p>
-            </div>
+            <EmptyContent />
           )}
         </CourseWrapper>
       </CourseContent>

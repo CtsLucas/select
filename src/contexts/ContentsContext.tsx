@@ -85,8 +85,8 @@ export function ContentsProvider({ children }: ContentsProviderProps) {
         journeys,
         courses,
       }));
-    } catch (err) {
-      console.log('error: ', err);
+    } catch (error) {
+      console.log('error: ', error);
     } finally {
       handleLoading(false);
     }
