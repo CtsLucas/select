@@ -1,6 +1,6 @@
 import { ClockAfternoon, MonitorPlay } from 'phosphor-react';
 
-import { JourneyType } from '@/types/Contents';
+import { JourneyType } from '@/types/models';
 import { formatDuration } from '@utils/formatters';
 import { Separator } from '@components';
 

@@ -6,7 +6,7 @@ import {
 } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
-import { CourseType } from '@/types/Contents';
+import { CourseType } from '@/types/models';
 import { CardCourse } from '@pages/Journey/components';
 
 import { CarouselCourseContainer } from './styles';

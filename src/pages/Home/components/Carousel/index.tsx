@@ -4,10 +4,11 @@ import { useKeenSlider } from 'keen-slider/react';
 import { KeenSliderHooks, KeenSliderInstance } from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
 
-import { SlideBannerType } from '../SlideBanner';
-import { SlideCourseType } from '../SlideCourse';
-import { SlideJourneyType } from '../SlideJourney';
-
+import {
+  SlideBannerType,
+  SlideCourseType,
+  SlideJourneyType,
+} from '@/types/models';
 import { SlideBanner, SlideCourse, SlideJourney } from '@pages/Home/components';
 
 import { CarouselContainer, CarouselContent } from './styles';

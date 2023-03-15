@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { LevelIcon } from '@components';
-import { CourseType } from '@/types/Contents';
+import { CourseType } from '@/types/models';
 import { formatDuration, formatLevel } from '@utils/formatters';
 
 import {

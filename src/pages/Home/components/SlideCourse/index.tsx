@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Clock } from 'phosphor-react';
 
+import { SlideCourseType } from '@/types/models';
 import { formatDuration, formatLevel } from '@utils/formatters';
 import { LevelIcon } from '@components';
 
@@ -12,16 +13,7 @@ import {
   SlideIcon,
 } from './styles';
 
-export interface SlideCourseType {
-  id: string;
-  thumb: string;
-  title: string;
-  instructor: string;
-  level: 'beginner' | 'intermediate' | 'advanced';
-  duration: number;
-}
-
-export interface SlideCourseProps {
+interface SlideCourseProps {
   data: SlideCourseType;
   onLoading: () => void;
 }

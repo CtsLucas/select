@@ -3,7 +3,7 @@ import { useFormContext } from 'react-hook-form';
 
 import { InputError, InputTextContainer, InputTextContent } from './styles';
 
-export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   name: string;
   icon?: ReactNode;

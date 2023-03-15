@@ -58,3 +58,37 @@ export interface Date {
 export interface LessonID {
   lessonID: string;
 }
+
+export interface ModuleType {
+  duration: number;
+  lessons: LessonType[];
+  title: string;
+}
+
+export interface SlideBannerType {
+  instructor: string;
+  id: string;
+  thumb: string;
+  title: string;
+  duration: number;
+  coursesCount: number;
+  level: 'beginner' | 'intermediate' | 'advanced';
+}
+
+export interface SlideCourseType {
+  id: string;
+  thumb: string;
+  title: string;
+  instructor: string;
+  level: 'beginner' | 'intermediate' | 'advanced';
+  duration: number;
+}
+
+export interface SlideJourneyType {
+  id: string;
+  thumb: string;
+  title: string;
+  description: string;
+  countCourses?: number;
+  duration?: number;
+}

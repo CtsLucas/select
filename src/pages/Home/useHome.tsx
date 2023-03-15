@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 
 import { useContent } from '@contexts/ContentsContext';
 import { getRandomItens } from '@utils/getRandomItens';
-
-import { SlideBannerType } from './components/SlideBanner';
-import { SlideCourseType } from './components/SlideCourse';
-import { SlideJourneyType } from './components/SlideJourney';
+import {
+  SlideBannerType,
+  SlideCourseType,
+  SlideJourneyType,
+} from '@/types/models';
 
 export function useHome() {
   const { contents, handleLoading } = useContent();

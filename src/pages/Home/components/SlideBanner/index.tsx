@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { ClockAfternoon, MonitorPlay, Plus } from 'phosphor-react';
 
+import { SlideBannerType } from '@/types/models';
 import { formatDuration, formatLevel } from '@utils/formatters';
 import { Banner, LevelIcon } from '@components';
 
@@ -12,17 +13,7 @@ import {
   LinkButton,
 } from './styles';
 
-export interface SlideBannerType {
-  instructor: string;
-  id: string;
-  thumb: string;
-  title: string;
-  duration: number;
-  coursesCount: number;
-  level: 'beginner' | 'intermediate' | 'advanced';
-}
-
-export interface SlideBannerProps {
+interface SlideBannerProps {
   data: SlideBannerType;
   onLoading: () => void;
 }

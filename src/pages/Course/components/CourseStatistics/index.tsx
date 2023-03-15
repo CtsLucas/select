@@ -1,6 +1,6 @@
 import { FileArrowDown, Medal, MonitorPlay } from 'phosphor-react';
 
-import { CourseType } from '@/types/Contents';
+import { CourseType } from '@/types/models';
 
 import { LevelIcon } from '@components';
 import { formatLevel } from '@utils/formatters';
