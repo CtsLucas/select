@@ -1,5 +1,6 @@
 import { ClockAfternoon } from 'phosphor-react';
 
+import { SlideJourneyType } from '@/types/models';
 import { formatDuration } from '@utils/formatters';
 
 import {
@@ -9,16 +10,7 @@ import {
   SlideJourneyFooter,
 } from './styles';
 
-export interface SlideJourneyType {
-  id: string;
-  thumb: string;
-  title: string;
-  description: string;
-  countCourses?: number;
-  duration?: number;
-}
-
-export interface SlideJourneyProps {
+interface SlideJourneyProps {
   data: SlideJourneyType;
   onLoading: () => void;
 }

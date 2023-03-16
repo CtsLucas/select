@@ -1,16 +1,10 @@
-import { LessonType } from '@/types/Contents';
+import { ModuleType } from '@/types/models';
 import { Accordion } from '@pages/Course/components';
 
 import { ModulesContainer } from './styles';
 
 interface ModulesProps {
   modules: ModuleType[];
-}
-
-export interface ModuleType {
-  duration: number;
-  lessons: LessonType[];
-  title: string;
 }
 
 export default function CourseModules({ modules }: ModulesProps) {

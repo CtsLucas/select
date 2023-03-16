@@ -4,10 +4,11 @@ import { useKeenSlider } from 'keen-slider/react';
 import { KeenSliderHooks, KeenSliderInstance } from 'keen-slider';
 import 'keen-slider/keen-slider.min.css';
 
-import { SlideBannerType } from '../SlideBanner';
-import { SlideCourseType } from '../SlideCourse';
-import { SlideJourneyType } from '../SlideJourney';
-
+import {
+  SlideBannerType,
+  SlideCourseType,
+  SlideJourneyType,
+} from '@/types/models';
 import { SlideBanner, SlideCourse, SlideJourney } from '@pages/Home/components';
 
 import { CarouselContainer, CarouselContent } from './styles';
@@ -144,7 +145,7 @@ export default function Carousel({ slides, variant, title }: CarouselProps) {
           </div>
           {variant !== 'banner' && loaded && instanceRef.current && (
             <>
-              {/* TO-DO: Create button component */}
+              {/* TODO: Create button component */}
               <button
                 className="arrow arrow--left"
                 onClick={() => instanceRef.current?.prev()}

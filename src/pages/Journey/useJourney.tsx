@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CourseType } from '@/types/Contents';
+import { CourseType } from '@/types/models';
 import { ContentsContext } from '@contexts/ContentsContext';
 import { api } from '@/lib/axios';
 

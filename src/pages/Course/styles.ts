@@ -73,5 +73,26 @@ export const CourseDescription = styled.div`
         line-height: 1.25rem;
       }
     }
+
+    & > .course-description__content__tags {
+      display: flex;
+      gap: 0.5rem;
+
+      & > span {
+        background: ${({ theme }) => theme.colors.indigo[500]};
+        border-radius: 0.25rem;
+        padding: 0.25rem 0.5rem;
+
+        color: ${({ theme }) => theme.colors.zinc[100]};
+        font-weight: 700;
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+        text-transform: lowercase;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
   }
 `;

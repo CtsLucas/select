@@ -8,8 +8,7 @@ import {
 } from 'react';
 import axios from 'axios';
 
-import { CourseType, JourneyType } from '@/types/Contents';
-
+import { CourseType, JourneyType } from '@/types/models';
 import { api } from '@/lib/axios';
 
 interface ContentsContextType {

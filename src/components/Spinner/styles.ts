@@ -12,7 +12,7 @@ const load = keyframes`
     height: 5em;
 }`;
 
-export interface SpinnerProps {
+interface SpinnerProps {
   size?: number;
 }
 

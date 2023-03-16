@@ -1,7 +1,7 @@
 import { CaretDown, PlayCircle } from 'phosphor-react';
 
 import { formatDuration } from '@utils/formatters';
-import { ModuleType } from '@pages/Course/components/CourseModules';
+import { ModuleType } from '@/types/models';
 
 import {
   AccordionContent,
