@@ -145,7 +145,7 @@ export default function Carousel({ slides, variant, title }: CarouselProps) {
           </div>
           {variant !== 'banner' && loaded && instanceRef.current && (
             <>
-              {/* TO-DO: Create button component */}
+              {/* TODO: Create button component */}
               <button
                 className="arrow arrow--left"
                 onClick={() => instanceRef.current?.prev()}

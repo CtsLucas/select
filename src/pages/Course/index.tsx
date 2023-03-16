@@ -17,6 +17,9 @@ import {
 export default function Course() {
   const { course, modules } = useCourse();
 
+  const modulesIsEmpty = modules.length === 0;
+  const tagsIsEmpty = course?.tags && course?.tags.length === 0;
+
   return (
     <CourseContainer>
       <Banner
@@ -29,11 +32,21 @@ export default function Course() {
         <CourseStatistics course={course} />
 
         <CourseWrapper>
-          {modules.length > 0 ? (
+          {!modulesIsEmpty ? (
             <>
               <CourseModules modules={modules} />
 
               <CourseDescription>
+                {!tagsIsEmpty && (
+                  <div className="course-description__content">
+                    <strong>Tags</strong>
+                    <div className="course-description__content__tags">
+                      {course?.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <div className="course-description__content">
                   <strong>Sobre o curso</strong>
                   <p>{course?.description}</p>
