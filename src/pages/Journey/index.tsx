@@ -1,4 +1,4 @@
-import { Banner } from '@components';
+import { Banner, Spinner } from '@components';
 import { CarouselCourse, JourneyStatistics } from '@pages/Journey/components';
 
 import { useJourney } from './useJourney';
@@ -6,7 +6,7 @@ import { useJourney } from './useJourney';
 import { JourneyContainer, JourneyContent } from './styles';
 
 export default function Journey() {
-  const { journey, courses } = useJourney();
+  const { journey, courses, loading } = useJourney();
 
   return (
     <JourneyContainer>
@@ -19,9 +19,15 @@ export default function Journey() {
       <JourneyStatistics journey={journey} />
 
       <JourneyContent>
-        <h2>{journey?.title}</h2>
+        {loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <h2>{journey?.title}</h2>
 
-        <CarouselCourse slides={courses} />
+            <CarouselCourse slides={courses} />
+          </>
+        )}
       </JourneyContent>
     </JourneyContainer>
   );

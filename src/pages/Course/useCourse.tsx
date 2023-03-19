@@ -11,7 +11,7 @@ interface ResponseProps {
 
 export function useCourse() {
   const [modules, setModules] = useState<ModuleType[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
   const { contents } = useContext(ContentsContext);
