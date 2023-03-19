@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const CourseContainer = styled.div`
-  padding-bottom: 1rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;

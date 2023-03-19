@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const JourneyContainer = styled.div`
-  padding-bottom: 1rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
