@@ -1,4 +1,4 @@
-import { Banner } from '@components';
+import { Banner, Spinner } from '@components';
 import {
   CourseModules,
   CourseStatistics,
@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 export default function Course() {
-  const { course, modules } = useCourse();
+  const { course, modules, loading } = useCourse();
 
   const modulesIsEmpty = modules.length === 0;
   const tagsIsEmpty = course?.tags && course?.tags.length === 0;
@@ -28,41 +28,45 @@ export default function Course() {
         description={course?.description}
       />
 
-      <CourseContent>
-        <CourseStatistics course={course} />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <CourseContent>
+          <CourseStatistics course={course} />
 
-        <CourseWrapper>
-          {!modulesIsEmpty ? (
-            <>
-              <CourseModules modules={modules} />
+          <CourseWrapper>
+            {!modulesIsEmpty ? (
+              <>
+                <CourseModules modules={modules} />
 
-              <CourseDescription>
-                {!tagsIsEmpty && (
-                  <div className="course-description__content">
-                    <strong>Tags</strong>
-                    <div className="course-description__content__tags">
-                      {course?.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                      ))}
+                <CourseDescription>
+                  {!tagsIsEmpty && (
+                    <div className="course-description__content">
+                      <strong>Tags</strong>
+                      <div className="course-description__content__tags">
+                        {course?.tags.map((tag) => (
+                          <span key={tag}>{tag}</span>
+                        ))}
+                      </div>
                     </div>
+                  )}
+                  <div className="course-description__content">
+                    <strong>Sobre o curso</strong>
+                    <p>{course?.description}</p>
                   </div>
-                )}
-                <div className="course-description__content">
-                  <strong>Sobre o curso</strong>
-                  <p>{course?.description}</p>
-                </div>
 
-                <div className="course-description__content">
-                  <strong>Autor</strong>
-                  <p>{course?.instructor}</p>
-                </div>
-              </CourseDescription>
-            </>
-          ) : (
-            <EmptyContent />
-          )}
-        </CourseWrapper>
-      </CourseContent>
+                  <div className="course-description__content">
+                    <strong>Autor</strong>
+                    <p>{course?.instructor}</p>
+                  </div>
+                </CourseDescription>
+              </>
+            ) : (
+              <EmptyContent />
+            )}
+          </CourseWrapper>
+        </CourseContent>
+      )}
     </CourseContainer>
   );
 }

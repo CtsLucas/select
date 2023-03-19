@@ -11,6 +11,7 @@ interface ResponseProps {
 
 export function useCourse() {
   const [modules, setModules] = useState<ModuleType[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const { id } = useParams();
   const { contents } = useContext(ContentsContext);
@@ -21,6 +22,7 @@ export function useCourse() {
 
   const fetchCourses = useCallback(async () => {
     try {
+      setLoading(true);
       const {
         data: { modules },
       } = await api.get<ResponseProps>(`/lessons/${id}`);
@@ -42,6 +44,8 @@ export function useCourse() {
       setModules(modulesWithLessons);
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -51,5 +55,5 @@ export function useCourse() {
     window.scrollTo(0, 0);
   }, []);
 
-  return { course, modules };
+  return { course, modules, loading };
 }

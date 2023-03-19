@@ -1,59 +1,43 @@
 import styled, { keyframes } from 'styled-components';
 
 const load = keyframes`
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0 -2em;
-    height: 5em;
-}`;
+ 0% { width: 40px }
+  100% { width: 200px}`;
 
 interface SpinnerProps {
   size?: number;
 }
 
 export const SpinnerContainer = styled.div<SpinnerProps>`
-  background: ${({ theme }) => theme.colors.indigo[500]};
-  -webkit-animation: ${load} 1s infinite ease-in-out;
-  animation: ${load} 1s infinite ease-in-out;
-  width: 1em;
-  height: 4em;
-
-  color: ${({ theme }) => theme.colors.indigo[500]};
-  text-indent: -9999em;
-  margin: 88px auto;
+  width: 40px;
+  ${({ size }) => (size && `height: ${size}px;`) || 'height: 16px;'}
+  display: block;
+  margin: 20px auto;
   position: relative;
-  font-size: ${({ size }) => `${size}px`};
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0) rotate(90deg);
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+  border-radius: 4px;
+  color: ${({ theme }) => theme.colors.indigo[500]};
+  background: currentColor;
+  box-sizing: border-box;
+  animation: ${load} 0.5s 0.3s linear infinite alternate;
 
   &:before,
   &:after {
-    background: ${({ theme }) => theme.colors.indigo[500]};
-    -webkit-animation: ${load} 1s infinite ease-in-out;
-    animation: ${load} 1s infinite ease-in-out;
-    width: 1em;
-    height: 4em;
-
-    position: absolute;
-    top: 0;
     content: "";
-  }
-
-  &:before {
-    left: -1.5em;
-    -webkit-animation-delay: -0.32s;
-    animation-delay: -0.32s;
+    box-sizing: border-box;
+    width: 40px;
+    ${({ size }) => (size && `height: ${size}px;`) || 'height: 16px;'}
+    border-radius: 4px;
+    background: currentColor;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 45px;
+    ${({ size }) => (size && `top: calc(${size}px + 4px);`) || 'top: 20x;'}
+    animation: ${load} 0.5s 0.45s linear infinite alternate;
   }
 
   &:after {
-    left: 1.5em;
+    ${({ size }) => (size && `top: calc(-${size}px - 4px);`) || 'top: 20px;'}
+    animation-delay: 0s;
   }
 `;
