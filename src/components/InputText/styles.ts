@@ -14,7 +14,7 @@ export const InputTextContainer = styled.div`
   gap: 0.25rem;
 `;
 
-export const InputTextContent = styled.div`
+export const InputTextContent = styled.div<InputTextProps>`
   width: 100%;
 
   display: flex;
@@ -25,6 +25,47 @@ export const InputTextContent = styled.div`
 
   position: relative;
 
+  & > label {
+    color: ${({ theme }) => theme.colors.zinc[100]};
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+  }
+
+  & > input {
+    width: 100%;
+    height: 3.5rem;
+    padding: 0 1rem 0 3.25rem;
+
+    border-radius: 0.5rem;
+    background: ${({ theme }) => theme.colors.zinc[800]};
+    border: ${({ theme, isError }) =>
+    isError
+      ? `2px solid ${theme.colors.danger[500]}`
+      : '2px solid transparent'};
+
+    font-size: 1rem;
+    color: ${({ theme }) => theme.colors.zinc[100]};
+
+    &:hover {
+      background: ${({ theme }) => theme.colors.zinc[700]};
+      border-color: ${({ theme, isError }) =>
+    !isError && theme.colors.indigo[300]};
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px
+        ${({ theme, isError }) =>
+    (isError && theme.colors.danger[700]) || theme.colors.indigo[500]};
+    }
+
+    &:-webkit-autofill {
+      box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.zinc[800]} inset;
+      -webkit-text-fill-color: ${({ theme }) =>
+    theme.colors.zinc[300]}!important;
+    }
+  }
+
   & > svg {
     color: ${({ theme }) => theme.colors.zinc[100]};
     font-size: 24px;
@@ -33,46 +74,6 @@ export const InputTextContent = styled.div`
     left: 16px;
     top: 75%;
     transform: translateY(-75%);
-  }
-`;
-
-export const InputLabel = styled.label`
-  color: ${({ theme }) => theme.colors.zinc[100]};
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-`;
-
-export const Input = styled.input<InputTextProps>`
-  width: 100%;
-  height: 3.5rem;
-  padding: 0 1rem 0 3.25rem;
-
-  border-radius: 0.5rem;
-  background: ${({ theme }) => theme.colors.zinc[800]};
-  border: ${({ theme, isError }) =>
-    isError
-      ? `2px solid ${theme.colors.danger[500]}`
-      : '2px solid transparent'};
-
-  font-size: 1rem;
-  color: ${({ theme }) => theme.colors.zinc[100]};
-
-  &:not(:focus):hover {
-    background: ${({ theme }) => theme.colors.zinc[700]};
-    border-color: ${({ theme, isError }) =>
-    !isError && theme.colors.indigo[300]};
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px
-      ${({ theme, isError }) =>
-    (isError && theme.colors.danger[700]) || theme.colors.indigo[500]};
-  }
-
-  &:-webkit-autofill {
-    box-shadow: 0 0 0 30px ${({ theme }) => theme.colors.zinc[800]} inset;
-    -webkit-text-fill-color: ${({ theme }) => theme.colors.zinc[300]}!important;
   }
 `;
 
