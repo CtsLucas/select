@@ -1,7 +1,7 @@
 import { InputHTMLAttributes, ReactNode } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-import { Input, InputError, InputLabel, InputTextContainer, InputTextContent } from './styles';
+import { InputError, InputTextContainer, InputTextContent } from './styles';
 
 interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -21,11 +21,10 @@ export default function InputText({
 
   return (
     <InputTextContainer>
-      <InputTextContent >
-        <InputLabel htmlFor={name}>{label}</InputLabel>
+      <InputTextContent isError={!!error}>
+        <label htmlFor={name}>{label}</label>
         {icon}
-        <Input
-          isError={!!error}
+        <input
           {...register(name, {
             onChange: () => clearErrors(name),
           })}

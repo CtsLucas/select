@@ -9,7 +9,7 @@ export const EmptyContentContainer = styled.div`
   align-items: center;
   gap: 0.5rem;
 
-  & > strong {
+  strong {
     color: ${({ theme }) => theme.colors.zinc[100]};
     font-size: 2rem;
     font-weight: 700;
@@ -26,7 +26,7 @@ export const EmptyContentContainer = styled.div`
     }
   }
 
-  & > p {
+  p {
     color: ${({ theme }) => theme.colors.zinc[200]};
     font-size: 1rem;
     font-weight: 400;
