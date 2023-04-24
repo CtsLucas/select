@@ -2,6 +2,7 @@ import { Banner, Spinner } from '@components';
 import {
   CourseModules,
   CourseStatistics,
+  CourseTags,
   EmptyContent,
 } from '@pages/Course/components/';
 
@@ -43,11 +44,7 @@ export default function Course() {
                   {!tagsIsEmpty && (
                     <div className="course-description__content">
                       <strong>Tags</strong>
-                      <div className="course-description__content__tags">
-                        {course?.tags.map((tag) => (
-                          <span key={tag}>{tag}</span>
-                        ))}
-                      </div>
+                      <CourseTags tags={course?.tags} />
                     </div>
                   )}
                   <div className="course-description__content">
