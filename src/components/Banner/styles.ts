@@ -75,11 +75,6 @@ export const BannerTitle = styled.h1`
     font-size: 3rem;
     line-height: 3.5rem;
   }
-
-  @media (min-width: 1440px) {
-    font-size: 4rem;
-    line-height: 4.5rem;
-  }
 `;
 
 export const BannerDescription = styled.p`

@@ -13,7 +13,7 @@ export const SlideBannerContainer = styled.div`
   background-size: cover;
   background-position: 50%;
   background-repeat: no-repeat;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 
   position: relative;
 
@@ -63,11 +63,6 @@ export const SlideBannerContent = styled.div`
     @media (min-width: 1024px) {
       font-size: 3rem;
       line-height: 3.5rem;
-    }
-
-    @media (min-width: 1440px) {
-      font-size: 4rem;
-      line-height: 4.5rem;
     }
   }
 

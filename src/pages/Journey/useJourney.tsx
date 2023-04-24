@@ -6,6 +6,7 @@ import { api } from '@/lib/axios';
 
 export function useJourney() {
   const [courses, setCourses] = useState<CourseType[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const {
     contents: { journeys },
@@ -17,11 +18,14 @@ export function useJourney() {
 
   const fetchCourses = useCallback(async () => {
     try {
+      setLoading(true);
       const { data } = await api.get(`/journeys/${id}/courses`);
 
       setCourses(data || []);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -31,5 +35,5 @@ export function useJourney() {
     window.scrollTo(0, 0);
   }, []);
 
-  return { journey, courses };
+  return { journey, courses, loading };
 }
